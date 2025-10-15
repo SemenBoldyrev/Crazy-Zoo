@@ -90,10 +90,7 @@ namespace Crazy_Zoo
         //Triggers
         private void On_Feed_animal_button_press(object sender, RoutedEventArgs e)
         {
-            if (Animal_list.SelectedItem == null) { return; }
-            string action_dial = listOfAnimals[Animal_list.SelectedIndex].Action();
-            if (action_dial == null) { return; }
-            else { ShowDial(action_dial); }
+            
         }
 
         private void On_Voice_button_press(object sender, RoutedEventArgs e)
@@ -104,7 +101,10 @@ namespace Crazy_Zoo
 
         private void On_Crazy_action_button_press(object sender, RoutedEventArgs e)
         {
-        
+            if (Animal_list.SelectedItem == null) { return; }
+            string action_dial = listOfAnimals[Animal_list.SelectedIndex].Action();
+            if (action_dial == null) { return; }
+            else { ShowDial(action_dial); }
         }
 
         private void On_Add_new_button_press(object sender, RoutedEventArgs e)
