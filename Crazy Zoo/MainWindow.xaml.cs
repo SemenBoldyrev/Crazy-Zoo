@@ -153,7 +153,7 @@ namespace Crazy_Zoo
                     //sets bg image on grid
                     ImageBrush imgBrush = new ImageBrush();
                     Image image = new Image();
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/tomascore-horse.gif", UriKind.Absolute));
+                    image.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/tomascore-horse.gif", UriKind.Absolute));
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
 

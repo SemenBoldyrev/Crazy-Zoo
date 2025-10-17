@@ -10,8 +10,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<Resource Include="tomascore-horse.gif" />
 		<Resource Include="Assets\depressed-horse-new.wav" />
+		<Resource Include="Assets\tomascore-horse.gif" />
 	</ItemGroup>
 
   <ItemGroup>
