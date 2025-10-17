@@ -10,19 +10,19 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <ListBox Name="Animal_list" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,110,454,46" SelectionChanged="On_Animal_list_selected"/>
-        <TextBlock Name="Dial_box" HorizontalAlignment="Left" Height="62" Margin="351,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="439"/>
-        <ComboBox Name="Food_combo_box" HorizontalAlignment="Left" Height="35" Margin="351,182,0,0" VerticalAlignment="Top" Width="251"/>
-        <Button Name="Feed_animal_button" Content="Feed animal" HorizontalAlignment="Left" Height="34" Margin="607,183,0,0" VerticalAlignment="Top" Width="183" Click="On_Feed_animal_button_press"/>
-        <Button Name="Voice_button" Content="Voice" HorizontalAlignment="Left" Height="38" Margin="351,232,0,0" VerticalAlignment="Top" Width="439" Click="On_Voice_button_press"/>
-        <Button Name="Crazy_action_button" Content="Crazy Action!" HorizontalAlignment="Left" Height="38" Margin="351,289,0,0" VerticalAlignment="Top" Width="439" Click="On_Crazy_action_button_press"/>
-        <TextBlock HorizontalAlignment="Left" Height="23" Margin="351,110,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="125"/>
-        <TextBlock HorizontalAlignment="Left" Height="23" Margin="352,138,0,0" TextWrapping="Wrap" Text="Species:" VerticalAlignment="Top" Width="124"/>
+        <ListBox Name="Animal_list" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,110,454,46" SelectionChanged="On_Animal_list_selected" FontSize="20"/>
+        <TextBlock Name="Dial_box" HorizontalAlignment="Left" Height="62" Margin="351,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="439" FontSize="20"/>
+        <ComboBox Name="Food_combo_box" HorizontalAlignment="Left" Height="35" Margin="351,182,0,0" VerticalAlignment="Top" Width="251" FontSize="20"/>
+        <Button Name="Feed_animal_button" Content="Feed animal" HorizontalAlignment="Left" Height="34" Margin="607,183,0,0" VerticalAlignment="Top" Width="183" Click="On_Feed_animal_button_press" FontSize="20"/>
+        <Button Name="Voice_button" Content="Voice" HorizontalAlignment="Left" Height="38" Margin="351,232,0,0" VerticalAlignment="Top" Width="439" Click="On_Voice_button_press" FontSize="20"/>
+        <Button Name="Crazy_action_button" Content="Crazy Action!" HorizontalAlignment="Left" Height="38" Margin="351,289,0,0" VerticalAlignment="Top" Width="439" Click="On_Crazy_action_button_press" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="351,110,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="125" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="352,138,0,0" TextWrapping="Wrap" Text="Species:" VerticalAlignment="Top" Width="124" FontSize="20"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="95" Margin="0,10,0,0" VerticalAlignment="Top" Width="780"/>
-        <Button Name="Add_new_button" Content="Add new" HorizontalAlignment="Left" Height="35" Margin="10,370,0,0" VerticalAlignment="Top" Width="168" Click="On_Add_new_button_press"/>
-        <Button Name="Delete_button" Content="Delete" HorizontalAlignment="Left" Height="35" Margin="183,370,0,0" VerticalAlignment="Top" Width="162" Click="On_Delete_button_press"/>
-        <TextBlock Name="Name_box" HorizontalAlignment="Left" Height="23" Margin="481,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
-        <TextBlock Name="Species_box" HorizontalAlignment="Left" Height="23" Margin="481,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
+        <Button Name="Add_new_button" Content="Add new" HorizontalAlignment="Left" Height="35" Margin="10,370,0,0" VerticalAlignment="Top" Width="168" Click="On_Add_new_button_press" FontSize="20"/>
+        <Button Name="Delete_button" Content="Delete" HorizontalAlignment="Left" Height="35" Margin="183,370,0,0" VerticalAlignment="Top" Width="162" Click="On_Delete_button_press" FontSize="20"/>
+        <TextBlock Name="Name_box" HorizontalAlignment="Left" Height="23" Margin="481,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
+        <TextBlock Name="Species_box" HorizontalAlignment="Left" Height="23" Margin="481,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock HorizontalAlignment="Center" Height="93" Margin="0,12,0,0" TextWrapping="Wrap" Text="WELCOM TO&quot;CRAZY ZOO&quot;!" VerticalAlignment="Top" Width="780" FontSize="60" TextAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>

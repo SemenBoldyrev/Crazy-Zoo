@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crazy_Zoo"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Animal creation WIZARD" Height="450" Width="800">
     <Grid Background="Black">
-        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,38,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT"/>
-        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,83,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT"/>
-        <TextBlock HorizontalAlignment="Left" Height="38" Margin="278,128,0,0" TextWrapping="Wrap" Text="Species:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT"/>
-        <TextBlock HorizontalAlignment="Left" Height="38" Margin="278,173,0,0" TextWrapping="Wrap" Text="Voice:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT"/>
-        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,219,0,0" TextWrapping="Wrap" Text="Introduction:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT"/>
-        <ComboBox x:Name="Type_field" HorizontalAlignment="Left" Height="38" Margin="400,33,0,0" VerticalAlignment="Top" Width="192" Foreground="Black" FontFamily="Old English Text MT"/>
-        <TextBox x:Name="Name_field" HorizontalAlignment="Left" Height="39" Margin="400,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT" Text="Enter name here"/>
-        <TextBox x:Name="Species_field" HorizontalAlignment="Left" Height="40" Margin="400,123,0,0" TextWrapping="Wrap" Text="Enter specie here" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT"/>
-        <TextBox x:Name="Voice_field" HorizontalAlignment="Left" Height="39" Margin="400,169,0,0" TextWrapping="Wrap" Text="Enter voice here" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT"/>
-        <TextBox x:Name="Introduction_field" HorizontalAlignment="Left" Height="121" Margin="400,217,0,0" TextWrapping="Wrap" Text="Enter description here" VerticalAlignment="Top" Width="361" BorderBrush="Black" SelectionTextBrush="White" FontFamily="Old English Text MT"/>
-        <Button x:Name="Create_new_animal_button" Content="Create new animal!" HorizontalAlignment="Left" Height="37" Margin="278,343,0,0" VerticalAlignment="Top" Width="483" Click="On_Create_new_animal_button_press" Foreground="White" Background="Black" BorderBrush="#FF355AC5" FontFamily="Old English Text MT"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,38,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,83,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="278,128,0,0" TextWrapping="Wrap" Text="Species:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="278,173,0,0" TextWrapping="Wrap" Text="Voice:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="278,219,0,0" TextWrapping="Wrap" Text="Introduction:" VerticalAlignment="Top" Width="115" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <ComboBox x:Name="Type_field" HorizontalAlignment="Left" Height="38" Margin="400,33,0,0" VerticalAlignment="Top" Width="192" Foreground="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBox x:Name="Name_field" HorizontalAlignment="Left" Height="39" Margin="400,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT" Text="Enter name here" FontSize="20"/>
+        <TextBox x:Name="Species_field" HorizontalAlignment="Left" Height="40" Margin="400,123,0,0" TextWrapping="Wrap" Text="Enter specie here" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBox x:Name="Voice_field" HorizontalAlignment="Left" Height="39" Margin="400,169,0,0" TextWrapping="Wrap" Text="Enter voice here" VerticalAlignment="Top" Width="192" BorderBrush="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBox x:Name="Introduction_field" HorizontalAlignment="Left" Height="121" Margin="400,217,0,0" TextWrapping="Wrap" Text="Enter description here" VerticalAlignment="Top" Width="361" BorderBrush="Black" SelectionTextBrush="White" FontFamily="Old English Text MT" FontSize="20"/>
+        <Button x:Name="Create_new_animal_button" Content="Create new animal!" HorizontalAlignment="Left" Height="37" Margin="278,343,0,0" VerticalAlignment="Top" Width="483" Click="On_Create_new_animal_button_press" Foreground="White" Background="Black" BorderBrush="#FF355AC5" FontFamily="Old English Text MT" FontSize="20"/>
         <Rectangle HorizontalAlignment="Left" Height="348" Margin="31,56,0,0" Stroke="Black" VerticalAlignment="Top" Width="242">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/5e68b8adc5003bf2e6864fa6dd887faf.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Height="29" Margin="37,22,0,0" TextWrapping="Wrap" Text="Animal creation WIZARD" VerticalAlignment="Top" Width="201" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="15" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,22,0,0" TextWrapping="Wrap" Text="Animal creation WIZARD!" VerticalAlignment="Top" Width="241" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20" TextAlignment="Center"/>
 
     </Grid>
 </Window>
