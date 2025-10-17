@@ -17,9 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="E:\Vs homework\tst save\MainWindow.xaml.cs" Link="MainWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="5e68b8adc5003bf2e6864fa6dd887faf.jpg" />
     <Resource Include="images.jpg" />
-    <Resource Include="tomascore-horse.gif" />
     <Resource Include="Без названия.jpg" />
   </ItemGroup>
 

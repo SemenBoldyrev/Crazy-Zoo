@@ -22,7 +22,7 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<BaseAnimal> listOfAnimals = new();
+        public List<BaseAnimal> listOfAnimals = new();
 
         //ini't
         public MainWindow()
