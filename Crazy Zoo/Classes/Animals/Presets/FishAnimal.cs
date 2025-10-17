@@ -30,7 +30,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 
         public string Swim()
         {
-            return $"{this.GetName()} Waiting for something to happen";
+            return $"{this.GetName()} waiting for something to happen";
         }
     }
 }

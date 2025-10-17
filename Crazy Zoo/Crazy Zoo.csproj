@@ -9,11 +9,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="5e68b8adc5003bf2e6864fa6dd887faf.jpg" />
-    <None Remove="images.jpg" />
-    <None Remove="Без названия.jpg" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="tomascore-horse.gif" />
+		<Resource Include="Assets\depressed-horse-new.wav" />
+	</ItemGroup>
 
   <ItemGroup>
     <Resource Include="5e68b8adc5003bf2e6864fa6dd887faf.jpg" />
