@@ -8,6 +8,6 @@ namespace Crazy_Zoo.Interfaces
 {
     internal interface ISwimable
     {
-        void Swim();
+        string Swim();
     }
 }

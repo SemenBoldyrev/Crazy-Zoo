@@ -12,7 +12,7 @@ namespace Crazy_Zoo.Classes
         string _species;
         string _introduction;
         string _voice;
-        public BaseAnimal(string name, string species, string introduction, string voice) 
+        public BaseAnimal(string name, string species, string voice, string introduction) 
         {
             _name = name;
             _species = species;
@@ -25,8 +25,8 @@ namespace Crazy_Zoo.Classes
         public string GetIntroduction() => _introduction;
         public string GetVoice() => _voice;
 
-        public abstract string EatFood();
+        public abstract string EatFood(string food);
         public abstract string MakeSound();
-        public abstract string Action();
+        public abstract int Action();
     }
 }

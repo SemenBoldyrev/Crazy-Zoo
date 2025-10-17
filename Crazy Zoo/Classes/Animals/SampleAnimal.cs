@@ -5,38 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Crazy_Zoo.Classes.Animals
 {
-    internal class SampleAnimal: BaseAnimal, ICrazy, IRunnable
+    internal class SampleAnimal: BaseAnimal, ICrazy
     {
         public SampleAnimal(string name, string species, string introduction, string voice) : base(name, species, introduction, voice) { }
 
-        public void CrazyAction()
+        //Retruns int, which will show, which crazy actiont to start from main window script
+        public int CrazyAction()
         {
-            MessageBox.Show("crazy");
+            return 1;
         }
 
-        // returns null, if have to do crazy action, doesnt currently works
-        public override string Action()
+        // returns crazy action, if have to do crazy action
+        public override int Action() => CrazyAction();
+
+
+        // gets food, then returns str reaction on it
+        public override string EatFood(string food)
         {
-            CrazyAction();
-            return null;
+            return $"{this.GetName()} eating {food}";
         }
 
-        public override string EatFood()
-        {
-            throw new NotImplementedException();
-        }
-
+        // returns voice of animal
         public override string MakeSound()
         {
             return GetVoice();
-        }
-
-        public void Run()
-        {
-            throw new NotImplementedException();
         }
     }
 }
