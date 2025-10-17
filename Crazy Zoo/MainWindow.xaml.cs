@@ -157,9 +157,11 @@ namespace Crazy_Zoo
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
 
-                    var player = new MediaPlayer();
-                    player.Open(new Uri("pack://application:,,,/Assets/depressed-horse-new.wav", UriKind.Absolute));
+                    /*
+                    SoundPlayer player = new SoundPlayer();
+                    player.Load();
                     player.Play();
+                    */
 
                     break;
                 case 2:
