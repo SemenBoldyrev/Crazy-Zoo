@@ -22,7 +22,7 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<BaseAnimal> listOfAnimals = new();
+        public List<BaseAnimal> listOfAnimals = new();
 
         //ini't
         public MainWindow()
@@ -153,13 +153,14 @@ namespace Crazy_Zoo
                     //sets bg image on grid
                     ImageBrush imgBrush = new ImageBrush();
                     Image image = new Image();
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/tomascore-horse.gif"));
+                    image.Source = new BitmapImage(new Uri("pack://application:,,,/tomascore-horse.gif", UriKind.Absolute));
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
 
                     var player = new MediaPlayer();
-                    player.Open(new Uri("pack://application:,,,/depressed-horse-new.wav", UriKind.Absolute));
+                    player.Open(new Uri("pack://application:,,,/Assets/depressed-horse-new.wav", UriKind.Absolute));
                     player.Play();
+
                     break;
                 case 2:
                     AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter"));
