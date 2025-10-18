@@ -19,7 +19,7 @@ namespace Crazy_Zoo.Classes.Animals
             return 1;
         }
 
-        // returns crazy action, if have to do crazy action
+        // returns crazy action, if have to do crazy action, else reyurn 0 (or just return any value without adding ICrazy)
         public override int Action() => CrazyAction();
 
 

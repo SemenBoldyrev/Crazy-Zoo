@@ -24,11 +24,14 @@ namespace Crazy_Zoo
     {
         public List<BaseAnimal> listOfAnimals = new();
 
+        // --- add here new animals to appear on start ---
+        public List<BaseAnimal> animals_array = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria() };
+
         //ini't
         public MainWindow()
         {
             InitializeComponent();
-            foreach (BaseAnimal animal in new List<BaseAnimal> { new Horse(), new Monkey(), new Bacteria() }) { AddNewAnimal(animal); }
+            foreach (BaseAnimal animal in animals_array) { AddNewAnimal(animal); }
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
         }
@@ -157,7 +160,7 @@ namespace Crazy_Zoo
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
 
-                    /*
+                    /* idk how to implement this, i managed it to doesnt throw error, but still no sound
                     SoundPlayer player = new SoundPlayer();
                     player.Load();
                     player.Play();
