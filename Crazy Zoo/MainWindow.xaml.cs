@@ -25,7 +25,7 @@ namespace Crazy_Zoo
         public List<BaseAnimal> listOfAnimals = new();
 
         // --- add here new animals to appear on start ---
-        public List<BaseAnimal> animals_array = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria() };
+        public List<BaseAnimal> animals_array = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
 
         //ini't
         public MainWindow()
