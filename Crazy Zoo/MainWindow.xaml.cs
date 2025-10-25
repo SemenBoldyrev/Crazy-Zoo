@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals;
+using Crazy_Zoo.Usables.Enums;
 using System;
 using System.IO;
 using System.Linq.Expressions;
