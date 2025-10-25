@@ -12,12 +12,6 @@ namespace Crazy_Zoo.Classes.Animals.Presets
     {
         public GroundAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} furyously running in his cage") { }
 
-        public override int Action()
-        {
-            MessageBox.Show(Run());
-            return 0;
-        }
-
         public override string EatFood(string food)
         {
             return $"{this.GetName()} biting juicy {food}";

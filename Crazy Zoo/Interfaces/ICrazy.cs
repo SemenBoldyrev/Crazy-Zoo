@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crazy_Zoo.Usables.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Crazy_Zoo.Interfaces
 {
     internal interface ICrazy
     {
-        int CrazyAction();
+        CrazyActionEnumerates.CrazyActionEnum CrazyAction();
     }
 }

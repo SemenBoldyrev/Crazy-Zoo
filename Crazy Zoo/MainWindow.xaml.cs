@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals;
+using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
 using System;
 using System.IO;
@@ -69,6 +70,14 @@ namespace Crazy_Zoo
             ShowName(animal.GetName());
             ShowSpecies(animal.GetSpecies());
             ShowDial(animal.GetIntroduction());
+            if (animal is ICrazy)
+            {
+                Crazy_action_button.IsEnabled = true;
+            }
+            else
+            {
+                Crazy_action_button.IsEnabled = false;
+            }
         }
 
         public void ShowName(string name)
@@ -116,9 +125,10 @@ namespace Crazy_Zoo
 
         private void On_Crazy_action_button_press(object sender, RoutedEventArgs e)
         {
-            if (Animal_list.SelectedItem == null) { return; }
-            int action_id = listOfAnimals[Animal_list.SelectedIndex].Action();
-            CrazyActions(action_id);
+            if (Animal_list.SelectedItem == null || listOfAnimals[Animal_list.SelectedIndex] is not ICrazy) { return; }
+            ICrazy crazy_animal = (ICrazy)listOfAnimals[Animal_list.SelectedIndex];
+            CrazyActionEnumerates.CrazyActionEnum action_enum = crazy_animal.CrazyAction();
+            CrazyActions(action_enum);
         }
 
         private void On_Add_new_button_press(object sender, RoutedEventArgs e)
@@ -146,14 +156,14 @@ namespace Crazy_Zoo
         //and main window preforms it
         //not officient, but it works
 
-        private void CrazyActions(int act)
+        private void CrazyActions(CrazyActionEnumerates.CrazyActionEnum act)
         {
             switch (act)
             {
-                case 0:
+                case CrazyActionEnumerates.CrazyActionEnum.None:
                     ShowDial("This animal is pretty chill");
                     break;
-                case 1:
+                case CrazyActionEnumerates.CrazyActionEnum.Horse:
                     //sets bg image on grid
                     ImageBrush imgBrush = new ImageBrush();
                     Image image = new Image();
@@ -168,12 +178,12 @@ namespace Crazy_Zoo
                     */
 
                     break;
-                case 2:
+                case CrazyActionEnumerates.CrazyActionEnum.Monkey:
                     AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter"));
                     RemoveAnimal(Animal_list.SelectedIndex);
                     ClearInfo();
                     break;
-                case 3:
+                case CrazyActionEnumerates.CrazyActionEnum.Bacteria:
                     Window2 win = new Window2();
                     win.Owner = this;
                     win.Show();

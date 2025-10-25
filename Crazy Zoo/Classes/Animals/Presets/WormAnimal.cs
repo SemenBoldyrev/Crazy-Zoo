@@ -9,10 +9,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
     internal class WormAnimal : BaseAnimal
     {
         public WormAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, introduction = $"{name} wiggling like a worm in a jar") { }
-        public override int Action()
-        {
-            return 0;
-        }
+
 
         public override string EatFood(string food)
         {

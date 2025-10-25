@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,9 @@ namespace Crazy_Zoo.Classes.Animals
         public Bacteria(string name = "Bacteria", string species = "Prokaryote", string voice = "....", string introduction = "") : base(name, species, voice, introduction = $"{name} multiplying rapidly, \nbut still hardly seen")
         {
         }
-        public override int Action()
+        public CrazyActionEnumerates.CrazyActionEnum CrazyAction()
         {
-            return CrazyAction();
-        }
-        public int CrazyAction()
-        {
-            return 3;
+            return CrazyActionEnumerates.CrazyActionEnum.Bacteria;
         }
         public override string EatFood(string food)
         {
