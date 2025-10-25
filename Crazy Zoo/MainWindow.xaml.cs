@@ -141,7 +141,7 @@ namespace Crazy_Zoo
         }
 
         //crazy action, because i cannot change components trough another script
-        // so now, animal only returns int value to find needed crazy action
+        //so now, animal only returns int value to find needed crazy action
         //and main window preforms it
         //not officient, but it works
 
