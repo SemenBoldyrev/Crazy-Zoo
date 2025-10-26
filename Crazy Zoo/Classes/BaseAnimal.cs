@@ -27,5 +27,10 @@ namespace Crazy_Zoo.Classes
 
         public abstract string EatFood(string food);
         public abstract string MakeSound();
+
+        public override string ToString()
+        {
+            return $"{GetSpecies()}: {_name}";
+        }
     }
 }

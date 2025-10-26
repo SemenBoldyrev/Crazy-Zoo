@@ -3,6 +3,7 @@ using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq.Expressions;
 using System.Media;
@@ -24,17 +25,15 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<BaseAnimal> listOfAnimals = new();
-
         // --- add here new animals to appear on start ---
-        public List<BaseAnimal> animals_array = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
+        public List<BaseAnimal> listOfAnimals = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
 
         //ini't
         public MainWindow()
         {
             InitializeComponent();
-            foreach (BaseAnimal animal in animals_array) { AddNewAnimal(animal); }
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
+            Animal_list.ItemsSource = listOfAnimals;
             MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
         }
 
@@ -46,13 +45,18 @@ namespace Crazy_Zoo
         public void AddNewAnimal(BaseAnimal animal)
         {
             listOfAnimals.Add(animal);
-            Animal_list.Items.Add(animal.GetName());
+            RefreshAnimalListBox();
         }
 
         public void RemoveAnimal(int index)
         { 
             listOfAnimals.RemoveAt(index);
-            Animal_list.Items.RemoveAt(index);
+            RefreshAnimalListBox();
+        }
+
+        public void RefreshAnimalListBox()
+        {
+            Animal_list.Items.Refresh();
         }
 
         //Shower
@@ -170,6 +174,8 @@ namespace Crazy_Zoo
                     image.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/tomascore-horse.gif", UriKind.Absolute));
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
+
+                    Dial_box.Background = Brushes.White;
 
                     /* idk how to implement this, i managed it to doesnt throw error, but still no sound
                     SoundPlayer player = new SoundPlayer();
