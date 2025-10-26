@@ -1,7 +1,9 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals;
+using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq.Expressions;
 using System.Media;
@@ -23,17 +25,15 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<BaseAnimal> listOfAnimals = new();
-
         // --- add here new animals to appear on start ---
-        public List<BaseAnimal> animals_array = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
+        public List<BaseAnimal> listOfAnimals = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
 
         //ini't
         public MainWindow()
         {
             InitializeComponent();
-            foreach (BaseAnimal animal in animals_array) { AddNewAnimal(animal); }
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
+            Animal_list.ItemsSource = listOfAnimals;
             MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
         }
 
@@ -45,13 +45,18 @@ namespace Crazy_Zoo
         public void AddNewAnimal(BaseAnimal animal)
         {
             listOfAnimals.Add(animal);
-            Animal_list.Items.Add(animal.GetName());
+            RefreshAnimalListBox();
         }
 
         public void RemoveAnimal(int index)
         { 
             listOfAnimals.RemoveAt(index);
-            Animal_list.Items.RemoveAt(index);
+            RefreshAnimalListBox();
+        }
+
+        public void RefreshAnimalListBox()
+        {
+            Animal_list.Items.Refresh();
         }
 
         //Shower
@@ -69,6 +74,14 @@ namespace Crazy_Zoo
             ShowName(animal.GetName());
             ShowSpecies(animal.GetSpecies());
             ShowDial(animal.GetIntroduction());
+            if (animal is ICrazy)
+            {
+                Crazy_action_button.IsEnabled = true;
+            }
+            else
+            {
+                Crazy_action_button.IsEnabled = false;
+            }
         }
 
         public void ShowName(string name)
@@ -116,9 +129,10 @@ namespace Crazy_Zoo
 
         private void On_Crazy_action_button_press(object sender, RoutedEventArgs e)
         {
-            if (Animal_list.SelectedItem == null) { return; }
-            int action_id = listOfAnimals[Animal_list.SelectedIndex].Action();
-            CrazyActions(action_id);
+            if (Animal_list.SelectedItem == null || listOfAnimals[Animal_list.SelectedIndex] is not ICrazy) { return; }
+            ICrazy crazy_animal = (ICrazy)listOfAnimals[Animal_list.SelectedIndex];
+            CrazyActionEnumerates.CrazyActionEnum action_enum = crazy_animal.CrazyAction();
+            CrazyActions(action_enum);
         }
 
         private void On_Add_new_button_press(object sender, RoutedEventArgs e)
@@ -146,20 +160,22 @@ namespace Crazy_Zoo
         //and main window preforms it
         //not officient, but it works
 
-        private void CrazyActions(int act)
+        private void CrazyActions(CrazyActionEnumerates.CrazyActionEnum act)
         {
             switch (act)
             {
-                case 0:
+                case CrazyActionEnumerates.CrazyActionEnum.None:
                     ShowDial("This animal is pretty chill");
                     break;
-                case 1:
+                case CrazyActionEnumerates.CrazyActionEnum.Horse:
                     //sets bg image on grid
                     ImageBrush imgBrush = new ImageBrush();
                     Image image = new Image();
                     image.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/tomascore-horse.gif", UriKind.Absolute));
                     imgBrush.ImageSource = image.Source;
                     Bg_grid.Background = imgBrush;
+
+                    Dial_box.Background = Brushes.White;
 
                     /* idk how to implement this, i managed it to doesnt throw error, but still no sound
                     SoundPlayer player = new SoundPlayer();
@@ -168,12 +184,12 @@ namespace Crazy_Zoo
                     */
 
                     break;
-                case 2:
+                case CrazyActionEnumerates.CrazyActionEnum.Monkey:
                     AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter"));
                     RemoveAnimal(Animal_list.SelectedIndex);
                     ClearInfo();
                     break;
-                case 3:
+                case CrazyActionEnumerates.CrazyActionEnum.Bacteria:
                     Window2 win = new Window2();
                     win.Owner = this;
                     win.Show();

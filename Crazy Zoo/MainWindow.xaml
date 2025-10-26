@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <ListBox Name="Animal_list" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,110,454,46" SelectionChanged="On_Animal_list_selected" FontSize="20"/>
+        <ListBox Name="Animal_list" ItemsSource="{Binding listOfAnimals}" Margin="10,110,454,46" SelectionChanged="On_Animal_list_selected" FontSize="20"/>
         <TextBlock Name="Dial_box" HorizontalAlignment="Left" Height="62" Margin="351,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="439" FontSize="20"/>
         <ComboBox Name="Food_combo_box" HorizontalAlignment="Left" Height="35" Margin="351,182,0,0" VerticalAlignment="Top" Width="251" FontSize="20"/>
         <Button Name="Feed_animal_button" Content="Feed animal" HorizontalAlignment="Left" Height="34" Margin="607,183,0,0" VerticalAlignment="Top" Width="183" Click="On_Feed_animal_button_press" FontSize="20"/>

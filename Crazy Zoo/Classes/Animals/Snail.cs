@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Enums;
 
 namespace Crazy_Zoo.Classes.Animals
 {
@@ -8,14 +9,9 @@ namespace Crazy_Zoo.Classes.Animals
         {
         }
 
-        public override int Action()
+        public CrazyActionEnumerates.CrazyActionEnum CrazyAction()
         {
-            return CrazyAction();
-        }
-
-        public int CrazyAction()
-        {
-            return 1;
+            return CrazyActionEnumerates.CrazyActionEnum.Bacteria;
         }
 
         public override string EatFood(string food)

@@ -14,11 +14,6 @@ namespace Crazy_Zoo.Classes.Animals
         {
         }
 
-        public override int Action()
-        {
-            return 0;
-        }
-
         public override string EatFood(string food)
         {
             return $"{this.GetName()} dont want to eat {food} from the floor";

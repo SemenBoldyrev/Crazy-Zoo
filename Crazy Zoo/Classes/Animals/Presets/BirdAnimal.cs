@@ -12,12 +12,6 @@ namespace Crazy_Zoo.Classes.Animals.Presets
     {
         public BirdAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} cutting the very sky") { }
 
-        public override int Action()
-        {
-            MessageBox.Show(Fly());
-            return 0;
-        }
-
         public override string EatFood(string food)
         {
             return $"{this.GetName()} dives like a needle for {food}";

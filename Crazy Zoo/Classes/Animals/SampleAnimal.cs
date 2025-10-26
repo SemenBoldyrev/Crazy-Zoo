@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +14,11 @@ namespace Crazy_Zoo.Classes.Animals
     {
         public SampleAnimal(string name, string species, string introduction, string voice) : base(name, species, introduction, voice) { }
 
-        //Retruns int, which will show, which crazy actiont to start from main window script
-        public int CrazyAction()
+        //Retruns CrazyActionEnumerates.CrazyActionEnum, which will show, which crazy actiont to start from main window script
+        public CrazyActionEnumerates.CrazyActionEnum CrazyAction()
         {
-            return 1;
+            return CrazyActionEnumerates.CrazyActionEnum.None;
         }
-
-        // returns crazy action, if have to do crazy action, else reyurn 0 (or just return any value without adding ICrazy)
-        public override int Action() => CrazyAction();
-
 
         // gets food, then returns str reaction on it
         public override string EatFood(string food)

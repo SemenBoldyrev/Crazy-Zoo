@@ -12,12 +12,6 @@ namespace Crazy_Zoo.Classes.Animals.Presets
     {
         public FishAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} swimming in fog of lenses") { }
 
-        public override int Action()
-        {
-            MessageBox.Show(Swim());
-            return 0;
-        }
-
         public override string EatFood(string food)
         {
             return $"{this.GetName()} trying to devour {food} mercilessly";
