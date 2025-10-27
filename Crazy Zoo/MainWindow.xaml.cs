@@ -2,6 +2,8 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Localization.ApplicationLocalization;
+using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -31,9 +33,15 @@ namespace Crazy_Zoo
         //ini't
         public MainWindow()
         {
-            
+            LanguageManager.SetLanguage(LanguageManager.Languages.English);
 
             InitializeComponent();
+            //--------
+            //-----------
+            Language_combobox.Items.Add("English");
+            Language_combobox.Items.Add("Russian");
+            //-----------
+            //--------
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             Animal_list.ItemsSource = listOfAnimals;
             MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
@@ -157,6 +165,31 @@ namespace Crazy_Zoo
             ShowStartInfo(Animal_list.SelectedIndex);
         }
 
+        private void on_Language_combobox_change(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            MessageBox.Show("Language change will restart the application to apply changes.");
+            if (Language_combobox.SelectedItem == null) { return; }
+            switch (Language_combobox.SelectedItem.ToString())
+            {
+                case "English":
+                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
+                    break;
+                case "Russian":
+                    LanguageManager.SetLanguage(LanguageManager.Languages.Russian);
+                    break;
+                default:
+                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
+                    break;
+            }
+
+            //---------
+            var oldMainWindow = Application.Current.MainWindow;
+            Application.Current.MainWindow = new MainWindow();
+            Application.Current.MainWindow.Show();
+            oldMainWindow.Close();
+            //---------
+        }
+
         //crazy action, because i cannot change components trough another script
         //so now, animal only returns int value to find needed crazy action
         //and main window preforms it
@@ -200,5 +233,7 @@ namespace Crazy_Zoo
                     break;
             }
         }
+
+        
     }
 }

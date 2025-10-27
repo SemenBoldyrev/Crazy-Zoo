@@ -120,4 +120,7 @@
   <data name="MainCrazyZooName" xml:space="preserve">
     <value>CRAZY ZOO!</value>
   </data>
+  <data name="MainLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

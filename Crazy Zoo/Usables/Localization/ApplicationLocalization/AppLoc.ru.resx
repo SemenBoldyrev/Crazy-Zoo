@@ -120,4 +120,7 @@
   <data name="MainCrazyZooName" xml:space="preserve">
     <value>СУМАШЕДШИЙ ЗООПАРК</value>
   </data>
+  <data name="MainLanguage" xml:space="preserve">
+    <value>Язык</value>
+  </data>
 </root>

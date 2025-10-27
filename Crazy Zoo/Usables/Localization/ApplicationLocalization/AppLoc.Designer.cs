@@ -61,11 +61,20 @@ namespace Crazy_Zoo.Usables.Localization.ApplicationLocalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to CRAZY ZOO!.
         /// </summary>
         public static string MainCrazyZooName {
             get {
                 return ResourceManager.GetString("MainCrazyZooName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string MainLanguage {
+            get {
+                return ResourceManager.GetString("MainLanguage", resourceCulture);
             }
         }
     }
