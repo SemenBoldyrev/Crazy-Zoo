@@ -25,6 +25,6 @@
         <TextBlock Name="Name_box" HorizontalAlignment="Left" Height="23" Margin="481,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock Name="Species_box" HorizontalAlignment="Left" Height="23" Margin="481,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock HorizontalAlignment="Center" Height="93" Margin="0,12,0,0" TextWrapping="Wrap" Text="{x:Static res:AppLoc.MainCrazyZooName}" VerticalAlignment="Top" Width="780" FontSize="60" TextAlignment="Center" FontWeight="Bold"/>
-        <ComboBox Name="Language_combobox" HorizontalAlignment="Left" Height="27" Margin="706,110,0,0" VerticalAlignment="Top" Width="84" DataContextChanged="on_Language_combobox_change"/>
+        <ComboBox Name="Language_combobox" HorizontalAlignment="Left" Height="27" Margin="706,110,0,0" VerticalAlignment="Top" Width="84" SelectionChanged="on_Language_combobox_change"/>
     </Grid>
 </Window>

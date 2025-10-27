@@ -165,30 +165,6 @@ namespace Crazy_Zoo
             ShowStartInfo(Animal_list.SelectedIndex);
         }
 
-        private void on_Language_combobox_change(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            MessageBox.Show("Language change will restart the application to apply changes.");
-            if (Language_combobox.SelectedItem == null) { return; }
-            switch (Language_combobox.SelectedItem.ToString())
-            {
-                case "English":
-                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
-                    break;
-                case "Russian":
-                    LanguageManager.SetLanguage(LanguageManager.Languages.Russian);
-                    break;
-                default:
-                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
-                    break;
-            }
-
-            //---------
-            var oldMainWindow = Application.Current.MainWindow;
-            Application.Current.MainWindow = new MainWindow();
-            Application.Current.MainWindow.Show();
-            oldMainWindow.Close();
-            //---------
-        }
 
         //crazy action, because i cannot change components trough another script
         //so now, animal only returns int value to find needed crazy action
@@ -234,6 +210,25 @@ namespace Crazy_Zoo
             }
         }
 
-        
+        private void on_Language_combobox_change(object sender, SelectionChangedEventArgs e)
+        {
+            if (Language_combobox.SelectedItem == null) { return; }
+            switch (Language_combobox.SelectedItem.ToString())
+            {
+                case "English":
+                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
+                    break;
+                case "Russian":
+                    LanguageManager.SetLanguage(LanguageManager.Languages.Russian);
+                    break;
+                default:
+                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
+                    break;
+            }
+
+            //--------- refresh application to apply new language ---------
+            // to update on runtime, i will need to use some other method for XAML localization, current one is for code, i can use code for this, but mayby dictionary resources would be betters
+            //---------
+        }
     }
 }
