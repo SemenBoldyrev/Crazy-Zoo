@@ -31,6 +31,8 @@ namespace Crazy_Zoo
         //ini't
         public MainWindow()
         {
+            
+
             InitializeComponent();
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             Animal_list.ItemsSource = listOfAnimals;
