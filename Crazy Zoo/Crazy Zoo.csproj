@@ -20,19 +20,4 @@
     <Resource Include="Без названия.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Usables\Localization\ApplicationLocalization\AppLoc.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppLoc.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Usables\Localization\ApplicationLocalization\AppLoc.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppLoc.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>

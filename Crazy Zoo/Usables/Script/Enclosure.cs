@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crazy_Zoo.Usables.Script
 {
-    public class LanguageManager
+    internal class Enclosure
     {
     }
 }
