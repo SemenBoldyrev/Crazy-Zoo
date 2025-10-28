@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Usables\Localization\ApplicationLocalization\BacteriaXamlLoc\" />
-    <Folder Include="Usables\Localization\ApplicationLocalization\WizardMenuXamlLoc\" />
     <Folder Include="Usables\Localization\CodeLocalization\MainMenuCodeLoc\" />
     <Folder Include="Usables\Localization\CodeLocalization\AnimalCodeLoc\" />
   </ItemGroup>

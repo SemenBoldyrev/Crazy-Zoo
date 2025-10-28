@@ -23,7 +23,7 @@
                 <ImageBrush ImageSource="/5e68b8adc5003bf2e6864fa6dd887faf.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,22,0,0" TextWrapping="Wrap" Text="Animal creation WIZARD!" VerticalAlignment="Top" Width="241" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,22,0,0" TextWrapping="Wrap" Text="{DynamicResource WizardTitleStr}" VerticalAlignment="Top" Width="241" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20" TextAlignment="Center"/>
 
     </Grid>
 </Window>

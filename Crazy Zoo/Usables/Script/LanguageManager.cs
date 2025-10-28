@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,12 +40,18 @@ namespace Crazy_Zoo.Usables.Script
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
+            //for dynamic XAML localization
             Application.Current.Resources.MergedDictionaries.Clear();
-            ResourceDictionary resdict = new ResourceDictionary()
+
+            //Basically changes the resource with localized one using force
+            foreach (string pth in new List<string> {
+                "Usables/Localization/ApplicationLocalization/MainMenuXamlLoc/MainXamlLoc.{0}.xaml",
+                "Usables/Localization/ApplicationLocalization/WizardMenuXamlLoc/WizardXamlLoc.{0}.xaml"
+            })
             {
-                Source = new Uri($"Usables/Localization/ApplicationLocalization/MainMenuXamlLoc/MainXamlLoc.{lang}.xaml", UriKind.Relative)
-            };
-            Application.Current.Resources.MergedDictionaries.Add(resdict);
+                var resdict = new ResourceDictionary { Source = new Uri(string.Format(pth, lang), UriKind.Relative) };
+                Application.Current.Resources.MergedDictionaries.Add(resdict);
+            }
         }
     }
 }
