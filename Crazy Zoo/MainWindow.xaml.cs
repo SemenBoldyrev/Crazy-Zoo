@@ -28,27 +28,23 @@ namespace Crazy_Zoo
     {
         // --- add here new animals to appear on start ---
         public List<BaseAnimal> listOfAnimals = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
-
+        public List<string> listOfFoods = new List<string> { "hay", "meat", "apple", "chocolate" };
         //ini't
         public MainWindow()
         {
-            LanguageManager.SetLanguage(LanguageManager.Languages.English);
 
             InitializeComponent();
-            //--------
-            //-----------
-            Language_combobox.Items.Add("English");
-            Language_combobox.Items.Add("Russian");
-            //-----------
-            //--------
-            foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
+            Language_combobox.ItemsSource = LanguageManager.SupportedLanguages;
+            Language_combobox.SelectedItem = LanguageManager.SupportedLanguages[0];
+
+            Food_combo_box.ItemsSource = listOfFoods;
             Animal_list.ItemsSource = listOfAnimals;
-            MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
         }
 
         public void AddToCombobox(string itmName)
         {
-            Food_combo_box.Items.Add(itmName);
+            listOfFoods.Add(itmName);
+            Food_combo_box.Items.Refresh();
         }
 
         public void AddNewAnimal(BaseAnimal animal)
@@ -212,19 +208,8 @@ namespace Crazy_Zoo
         private void on_Language_combobox_change(object sender, SelectionChangedEventArgs e)
         {
             if (Language_combobox.SelectedItem == null) { return; }
-            switch (Language_combobox.SelectedItem.ToString())
-            {
-                case "English":
-                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
-                    break;
-                case "Russian":
-                    LanguageManager.SetLanguage(LanguageManager.Languages.Russian);
-                    break;
-                default:
-                    LanguageManager.SetLanguage(LanguageManager.Languages.English);
-                    break;
-            }
-
+            //considering, that there is strings from manager itself
+            LanguageManager.SetLanguageByStr(Language_combobox.SelectedItem.ToString());
         }
     }
 }

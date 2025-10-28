@@ -18,7 +18,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock x:Name="Info_block"  HorizontalAlignment="Center" Height="61" Margin="0,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="248" FontSize="20" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-        <TextBlock x:Name="Info_block_Copy"  HorizontalAlignment="Center" Height="28" Margin="0,22,0,0" TextWrapping="Wrap" Text="RAISE YOUR COLONY!" VerticalAlignment="Top" Width="248" FontSize="20" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+        <TextBlock x:Name="Info_block_Copy"  HorizontalAlignment="Center" Height="28" Margin="0,22,0,0" TextWrapping="Wrap" Text="{DynamicResource BacteriaRaisYourColony}" VerticalAlignment="Top" Width="248" FontSize="20" TextAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
 
     </Grid>
 </Window>

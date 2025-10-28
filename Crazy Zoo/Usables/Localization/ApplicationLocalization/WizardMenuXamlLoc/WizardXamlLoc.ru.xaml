@@ -3,4 +3,14 @@
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
 
     <System:String x:Key="WizardTitleStr">ВОЛХВ создания живаотных!</System:String>
+    <System:String x:Key="WizardType">Тип:</System:String>
+    <System:String x:Key="WizardName">Имя:</System:String>
+    <System:String x:Key="WizardSpecies">Вид:</System:String>
+    <System:String x:Key="WizardVoice">Голос:</System:String>
+    <System:String x:Key="WizardIntroduction">Вступление:</System:String>
+    <System:String x:Key="WizardCreateNewAnimal">Создать новую зверушку!</System:String>
+    <System:String x:Key="WizardEnterNameHere">Введите имя</System:String>
+    <System:String x:Key="WizardEnterSpeciesHere">Введите вид</System:String>
+    <System:String x:Key="WizardEnterVoiceHere">Введите голос</System:String>
+    <System:String x:Key="WizardEnterDescriptionHere">Введите введение</System:String>
 </ResourceDictionary>

@@ -3,4 +3,11 @@
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
     
     <System:String x:Key="MainTitleStr">Welcom to: CRAZY ZOO!</System:String>
+    <System:String x:Key="MainNameBlock">Name:</System:String>
+    <System:String x:Key="MainFeedBtn">Feed animal</System:String>
+    <System:String x:Key="MainVoiceBtn">Voice</System:String>
+    <System:String x:Key="MainCrazyActionBtn">Crazy Action!</System:String>
+    <System:String x:Key="MainSpeciesBlock">Species:</System:String>
+    <System:String x:Key="MainAddNewBtn">Add new</System:String>
+    <System:String x:Key="MainDeleteSelectedBtn">Delete Selected</System:String>
 </ResourceDictionary>

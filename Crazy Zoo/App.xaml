@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary  Source="Usables/Localization/ApplicationLocalization/MainMenuXamlLoc/MainXamlLoc.en.xaml"/>
                 <ResourceDictionary  Source="Usables/Localization/ApplicationLocalization/WizardMenuXamlLoc/WizardXamlLoc.en.xaml"/>
+                <ResourceDictionary  Source="Usables/Localization/ApplicationLocalization/BacteriaXamlLoc/BacteriaXamlLoc.en.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
