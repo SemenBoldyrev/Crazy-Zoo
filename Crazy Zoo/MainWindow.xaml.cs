@@ -2,7 +2,6 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
-using Crazy_Zoo.Usables.Localization.ApplicationLocalization;
 using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.ObjectModel;
@@ -226,9 +225,6 @@ namespace Crazy_Zoo
                     break;
             }
 
-            //--------- refresh application to apply new language ---------
-            // to update on runtime, i will need to use some other method for XAML localization, current one is for code, i can use code for this, but mayby dictionary resources would be betters
-            //---------
         }
     }
 }

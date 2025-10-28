@@ -19,21 +19,32 @@ namespace Crazy_Zoo.Usables.Script
         public static void SetLanguage(Languages language)
         {
             CultureInfo cultureInfo;
+            string lang;
             switch (language)
             {
                 case Languages.English:
                     cultureInfo = new CultureInfo("en");
+                    lang = "en";
                     break;
                 case Languages.Russian:
                     cultureInfo = new CultureInfo("ru");
+                    lang = "ru";
                     break;
                 default:
                     cultureInfo = new CultureInfo("en");
+                    lang = "en";
                     break;
             }
 
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            ResourceDictionary resdict = new ResourceDictionary()
+            {
+                Source = new Uri($"Usables/Localization/ApplicationLocalization/MainMenuXamlLoc/MainXamlLoc.{lang}.xaml", UriKind.Relative)
+            };
+            Application.Current.Resources.MergedDictionaries.Add(resdict);
         }
     }
 }
