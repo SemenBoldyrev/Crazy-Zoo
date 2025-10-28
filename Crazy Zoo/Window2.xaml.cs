@@ -1,4 +1,6 @@
 ﻿using System;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.MainCodeLoc;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,15 +28,15 @@ namespace Crazy_Zoo
         public Window2()
         {
             InitializeComponent();
-            More_button.Content = $"Next level cost: {inc_cost}";
-            Info_block.Text = $"Colony: {value}";
+            More_button.Content = MainLoc.NextLevelCost + $": {inc_cost}";
+            Info_block.Text = MainLoc.Colony + $": {value}";
             Multiply_button.Content = $"+{increase}";
         }
 
         private void On_Multiply_button_press(object sender, RoutedEventArgs e)
         {
             value += increase;
-            Info_block.Text = $"Colony: {value}";
+            Info_block.Text = MainLoc.Colony + $": {value}";
         }
 
         private void On_More_button_press(object sender, RoutedEventArgs e)
@@ -44,8 +46,8 @@ namespace Crazy_Zoo
                 value -= inc_cost;
                 increase += 3;
                 inc_cost *= 2;
-                More_button.Content = $"Next level cost: {inc_cost}";
-                Info_block.Text = $"Colony: {value}";
+                More_button.Content =  MainLoc.NextLevelCost+ $": {inc_cost}";
+                Info_block.Text = MainLoc.Colony + $": {value}";
                 Multiply_button.Content = $"+{increase}";
 
             }

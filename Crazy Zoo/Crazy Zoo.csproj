@@ -21,8 +21,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Usables\Localization\CodeLocalization\MainCodeLoc\" />
     <Folder Include="Usables\Localization\CodeLocalization\AnimalCodeLoc\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Usables\Localization\CodeLocalization\MainCodeLoc\MainLoc.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MainLoc.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Usables\Localization\CodeLocalization\MainCodeLoc\MainLoc.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainLoc.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

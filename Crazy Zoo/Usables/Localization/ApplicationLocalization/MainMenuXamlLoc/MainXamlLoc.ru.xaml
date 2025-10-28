@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
-    
+
     <System:String x:Key="MainTitleStr">СУМАШЕДШИЙ ЗООПАРК!</System:String>
     <System:String x:Key="MainNameBlock">Иия:</System:String>
     <System:String x:Key="MainFeedBtn">Покормить</System:String>
@@ -10,4 +10,5 @@
     <System:String x:Key="MainSpeciesBlock">Вид:</System:String>
     <System:String x:Key="MainAddNewBtn">Добавить</System:String>
     <System:String x:Key="MainDeleteSelectedBtn">Удалить выбранное</System:String>
+    <System:String x:Key="MainLanguage">Язык:</System:String>
 </ResourceDictionary>

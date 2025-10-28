@@ -1,5 +1,7 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals.Presets;
+using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.MainCodeLoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,14 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class Window1 : Window
     {
+        public List<string> animal_types = new() { MainLoc.Ground, MainLoc.Bird, MainLoc.Fish };
         public Window1()
         {
             InitializeComponent();
-            foreach (string type in new List<string> { "ground","bird","fish" }) { Type_field.Items.Add(type); }
+            foreach (string type in animal_types)
+            {
+                Type_field.Items.Add(type);
+            }
         }
 
         private void On_Create_new_animal_button_press(object sender, RoutedEventArgs e)
@@ -39,17 +45,17 @@ namespace Crazy_Zoo
 
             BaseAnimal animal;
 
-            switch (Type_field.SelectedItem)
+            switch (Type_field.SelectedIndex)
             {
-                case "ground":
+                case 0:
                     animal = new GroundAnimal(data["name"], data["species"], data["voice"]);
                     break;
 
-                case "bird":
+                case 1:
                     animal = new BirdAnimal(data["name"], data["species"], data["voice"]);
                     break;
 
-                case "fish":
+                case 2:
                     animal = new FishAnimal(data["name"], data["species"], data["voice"]);
                     break;
 

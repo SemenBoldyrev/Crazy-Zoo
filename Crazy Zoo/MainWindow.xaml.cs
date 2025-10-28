@@ -2,9 +2,12 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.MainCodeLoc;
 using Crazy_Zoo.Usables.Script;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq.Expressions;
 using System.Media;
@@ -28,19 +31,31 @@ namespace Crazy_Zoo
     {
         // --- add here new animals to appear on start ---
         public List<BaseAnimal> listOfAnimals = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
-        public List<string> listOfFoods = new List<string> { "hay", "meat", "apple", "chocolate" };
+        public List<string> listOfFoods = new List<string> { MainLoc.Hay, MainLoc.Meat, MainLoc.Apple, MainLoc.Chocolate };
         //ini't
         public MainWindow()
         {
-
+            LanguageManager.SetLanguage(LanguageManager.Languages.English);
             InitializeComponent();
             Language_combobox.ItemsSource = LanguageManager.SupportedLanguages;
             Language_combobox.SelectedItem = LanguageManager.SupportedLanguages[0];
+            
 
             Food_combo_box.ItemsSource = listOfFoods;
             Animal_list.ItemsSource = listOfAnimals;
         }
 
+        public void refreshMainCombobox()
+        {
+            Food_combo_box.ItemsSource = null; 
+            Food_combo_box.Items.Clear();
+           
+            listOfFoods.Clear();
+            listOfFoods = new List<string> { MainLoc.Hay, MainLoc.Meat, MainLoc.Apple, MainLoc.Chocolate };
+
+            Food_combo_box.ItemsSource = listOfFoods;
+            Food_combo_box.Items.Refresh();
+        }
         public void AddToCombobox(string itmName)
         {
             listOfFoods.Add(itmName);
@@ -93,7 +108,7 @@ namespace Crazy_Zoo
         {
             if (name == null)
             {
-                Name_box.Text = "NO NAME FOUND";
+                Name_box.Text = MainLoc.NoNameFound;
                 return;
             }
             Name_box.Text = name;
@@ -103,7 +118,7 @@ namespace Crazy_Zoo
         {
             if (species == null)
             {
-                Species_box.Text = "NO SPECIES FOUND";
+                Species_box.Text = MainLoc.NoSpecieFound;
                 return;
             }
             Species_box.Text = species;
@@ -113,7 +128,7 @@ namespace Crazy_Zoo
         {
             if (dial == null)
             {
-                Dial_box.Text = "NO DIAL FOUND";
+                Dial_box.Text = MainLoc.NoDialFound;
                 return;
             }
             Dial_box.Text = dial;
@@ -160,6 +175,15 @@ namespace Crazy_Zoo
             ShowStartInfo(Animal_list.SelectedIndex);
         }
 
+        private void on_Language_combobox_change(object sender, SelectionChangedEventArgs e)
+        {
+            if (Language_combobox.SelectedItem == null) { return; }
+            //considering, that there is strings from manager itself
+            LanguageManager.SetLanguageByStr(Language_combobox.SelectedItem.ToString());
+            // refreshes combobox
+            refreshMainCombobox();
+        }
+
 
         //crazy action, because i cannot change components trough another script
         //so now, animal only returns int value to find needed crazy action
@@ -171,7 +195,7 @@ namespace Crazy_Zoo
             switch (act)
             {
                 case CrazyActionEnumerates.CrazyActionEnum.None:
-                    ShowDial("This animal is pretty chill");
+                    ShowDial(MainLoc.ThisAnimalIsChill);
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Horse:
                     //sets bg image on grid
@@ -191,7 +215,7 @@ namespace Crazy_Zoo
 
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
-                    AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter"));
+                    AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " " + MainLoc.MonkeyAddButSmarter));
                     RemoveAnimal(Animal_list.SelectedIndex);
                     ClearInfo();
                     break;
@@ -205,11 +229,6 @@ namespace Crazy_Zoo
             }
         }
 
-        private void on_Language_combobox_change(object sender, SelectionChangedEventArgs e)
-        {
-            if (Language_combobox.SelectedItem == null) { return; }
-            //considering, that there is strings from manager itself
-            LanguageManager.SetLanguageByStr(Language_combobox.SelectedItem.ToString());
-        }
+        
     }
 }

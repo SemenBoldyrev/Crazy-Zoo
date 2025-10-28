@@ -10,4 +10,5 @@
     <System:String x:Key="MainSpeciesBlock">Species:</System:String>
     <System:String x:Key="MainAddNewBtn">Add new</System:String>
     <System:String x:Key="MainDeleteSelectedBtn">Delete Selected</System:String>
+    <System:String x:Key="MainLanguage">Language:</System:String>
 </ResourceDictionary>
