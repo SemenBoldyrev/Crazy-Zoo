@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.AnimalCodeLoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 {
     internal class FishAnimal: BaseAnimal, ISwimable
     {
-        public FishAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} swimming in fog of lenses") { }
+        public FishAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, string.Format(AnimalLoc.FishIntro,name)) { }
 
         public override string EatFood(string food)
         {
-            return $"{this.GetName()} trying to devour {food} mercilessly";
+            return string.Format(AnimalLoc.FishEating, this.GetName(), food);
         }
 
         public override string MakeSound()
@@ -24,7 +25,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 
         public string Swim()
         {
-            return $"{this.GetName()} waiting for something to happen";
+            return string.Format(AnimalLoc.FishSwimAction, this.GetName());
         }
     }
 }

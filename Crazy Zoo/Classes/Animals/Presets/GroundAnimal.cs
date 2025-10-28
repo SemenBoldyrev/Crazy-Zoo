@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.AnimalCodeLoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 {
     internal class GroundAnimal : BaseAnimal, IRunnable
     {
-        public GroundAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} furyously running in his cage") { }
+        public GroundAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, string.Format(AnimalLoc.GroundIntro,name)) { }
 
         public override string EatFood(string food)
         {
-            return $"{this.GetName()} biting juicy {food}";
+            return string.Format(AnimalLoc.GroundEating,this.GetName(),food);
         }
 
         public override string MakeSound()
@@ -24,7 +25,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 
         public string Run()
         {
-            return $"{this.GetName()} walking in circles";
+            return string.Format(AnimalLoc.GroundRunAction,this.GetName());
         }
     }
 }

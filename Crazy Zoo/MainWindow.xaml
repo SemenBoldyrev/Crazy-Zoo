@@ -12,7 +12,7 @@
             <ImageBrush/>
         </Grid.Background>
         <ListBox Name="Animal_list" ItemsSource="{Binding listOfAnimals}" Margin="10,110,454,46" SelectionChanged="On_Animal_list_selected" FontSize="20"/>
-        <TextBlock Name="Dial_box" HorizontalAlignment="Left" Height="60" Margin="351,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" FontSize="20"/>
+        <TextBlock Name="Dial_box" HorizontalAlignment="Left" Height="60" Margin="361,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" FontSize="20"/>
         <ComboBox Name="Food_combo_box" HorizontalAlignment="Left" Height="35" Margin="351,182,0,0" VerticalAlignment="Top" Width="251" FontSize="20"/>
         <Button Name="Feed_animal_button" Content="{DynamicResource MainFeedBtn}" HorizontalAlignment="Left" Height="34" Margin="607,183,0,0" VerticalAlignment="Top" Width="183" Click="On_Feed_animal_button_press" FontSize="20"/>
         <Button Name="Voice_button" Content="{DynamicResource MainVoiceBtn}" HorizontalAlignment="Left" Height="38" Margin="351,232,0,0" VerticalAlignment="Top" Width="439" Click="On_Voice_button_press" FontSize="20"/>
@@ -25,7 +25,8 @@
         <TextBlock Name="Name_box" HorizontalAlignment="Left" Height="23" Margin="481,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock Name="Species_box" HorizontalAlignment="Left" Height="23" Margin="481,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock HorizontalAlignment="Center" Height="93" Margin="0,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" FontSize="60" TextAlignment="Center" FontWeight="Bold" Text="{DynamicResource MainTitleStr}"/>
-        <ComboBox Name="Language_combobox" HorizontalAlignment="Left" Height="27" Margin="706,343,0,0" VerticalAlignment="Top" Width="84" SelectionChanged="on_Language_combobox_change"/>
-        <TextBlock HorizontalAlignment="Left" Height="27" Margin="602,343,0,0" TextWrapping="Wrap" Text="{DynamicResource MainLanguage}" VerticalAlignment="Top" Width="96" FontSize="20" TextAlignment="Right"/>
+        <ComboBox Name="Language_combobox" HorizontalAlignment="Left" Height="27" Margin="706,376,0,0" VerticalAlignment="Top" Width="84" SelectionChanged="on_Language_combobox_change"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="694,343,0,0" TextWrapping="Wrap" Text="{DynamicResource MainLanguage}" VerticalAlignment="Top" Width="96" FontSize="20" TextAlignment="Right"/>
+        <Rectangle HorizontalAlignment="Left" Height="62" Margin="352,341,0,0" Stroke="Black" VerticalAlignment="Top" Width="337"/>
     </Grid>
 </Window>

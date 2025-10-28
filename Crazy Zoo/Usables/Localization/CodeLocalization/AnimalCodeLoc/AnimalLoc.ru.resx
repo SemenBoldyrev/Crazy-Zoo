@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BirdEating" xml:space="preserve">
+    <value>{0} ныряет как игла сквозь щелк чтоб поймать {1}</value>
+  </data>
+  <data name="BirdFlyAction" xml:space="preserve">
+    <value>{0} не может полетать дольше трех секунд в своей клетке</value>
+  </data>
+  <data name="FishIntro" xml:space="preserve">
+    <value>{0} плавает в тумане линз</value>
+  </data>
+  <data name="FishEating" xml:space="preserve">
+    <value>{0} пытается щадяще поглотить {1}</value>
+  </data>
+  <data name="FishSwimAction" xml:space="preserve">
+    <value>{0} ждет чегото</value>
+  </data>
+  <data name="BirdIntro" xml:space="preserve">
+    <value>{0} сечет само небо</value>
+  </data>
+  <data name="GroundIntro" xml:space="preserve">
+    <value>{0} яростно бегает по клетке</value>
+  </data>
+  <data name="GroundEating" xml:space="preserve">
+    <value>{0} вгрызается в сочное {1}</value>
+  </data>
+  <data name="GroundRunAction" xml:space="preserve">
+    <value>{0} ходит кругами</value>
+  </data>
+  <data name="WormIntro" xml:space="preserve">
+    <value>{0} извивается как червь в банке</value>
+  </data>
+  <data name="WormEating" xml:space="preserve">
+    <value>{0} присасывается, вкушая {1}</value>
+  </data>
+  <data name="BacteriaName" xml:space="preserve">
+    <value>Бактерия</value>
+  </data>
+  <data name="BacteriaVoice" xml:space="preserve">
+    <value>....</value>
+  </data>
+  <data name="BacteriaIntro" xml:space="preserve">
+    <value>{0} активно делится, но все-же еле заметен</value>
+  </data>
+  <data name="BacteriaSpecie" xml:space="preserve">
+    <value>Прокариот</value>
+  </data>
+  <data name="BacteriaEating" xml:space="preserve">
+    <value>{0} поглощает {1} через свою мембрану</value>
+  </data>
+  <data name="WormSound" xml:space="preserve">
+    <value>{0} слишком слаб чтобы сказать '{1}'</value>
+  </data>
+  <data name="HorseName" xml:space="preserve">
+    <value>Лошадь</value>
+  </data>
+  <data name="HorseSpecie" xml:space="preserve">
+    <value>Простая лошадь</value>
+  </data>
+  <data name="HorseVoice" xml:space="preserve">
+    <value>Брррр</value>
+  </data>
+  <data name="HorseIntro" xml:space="preserve">
+    <value>{0} с легкость сотрясает землю</value>
+  </data>
+  <data name="HorseEating" xml:space="preserve">
+    <value>{0} так голоденб что может съесть {1}...</value>
+  </data>
+  <data name="HumanSpecie" xml:space="preserve">
+    <value>Человек</value>
+  </data>
+  <data name="HumanVoice" xml:space="preserve">
+    <value>'Я не собираюсь падать столь низко, я что в зоопарке?'</value>
+  </data>
+  <data name="HumanIntro" xml:space="preserve">
+    <value>{0} читает газету</value>
+  </data>
+  <data name="HumanEating" xml:space="preserve">
+    <value>{0} брезгует съесть {1} с пола</value>
+  </data>
+  <data name="HumanRunAction" xml:space="preserve">
+    <value>{0} is doing cardio</value>
+  </data>
+  <data name="MonkeyName" xml:space="preserve">
+    <value>Боб</value>
+  </data>
+  <data name="MonkeySpecie" xml:space="preserve">
+    <value>Примат</value>
+  </data>
+  <data name="MonkeyVoice" xml:space="preserve">
+    <value>У, у, у</value>
+  </data>
+  <data name="MonkeyIntro" xml:space="preserve">
+    <value>{0} скачет с дерева на дерево</value>
+  </data>
+  <data name="MonkeyEating" xml:space="preserve">
+    <value>{0} уничтожает {1} перед трапезой</value>
+  </data>
+  <data name="SnailName" xml:space="preserve">
+    <value>Блоб</value>
+  </data>
+  <data name="SnailSpecie" xml:space="preserve">
+    <value>Молюск</value>
+  </data>
+  <data name="SnailVoice" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="SnailIntro" xml:space="preserve">
+    <value>{0} нежно сочится сквозь листья</value>
+  </data>
+  <data name="SnailEats" xml:space="preserve">
+    <value>{0} медленно сжирает {1} </value>
+  </data>
+  <data name="SnailRunAction" xml:space="preserve">
+    <value>{0} Спешит со всей силы</value>
+  </data>
+  <data name="VirusName" xml:space="preserve">
+    <value>[Неизвестно]</value>
+  </data>
+  <data name="VirusSpecie" xml:space="preserve">
+    <value>Вирус</value>
+  </data>
+  <data name="VirusVoice" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="VirusIntro" xml:space="preserve">
+    <value>{0} Ждет своего часа завоевания сего мира</value>
+  </data>
+  <data name="VirusEating" xml:space="preserve">
+    <value>Такая сущность как {0} не нуждаeтся в чем-то вроде '{1}'</value>
+  </data>
+  <data name="VirusRunAction" xml:space="preserve">
+    <value>{0} движется на микроскопическом уровне</value>
+  </data>
+  <data name="ZebraName" xml:space="preserve">
+    <value>Зебра</value>
+  </data>
+  <data name="ZebraSpecie" xml:space="preserve">
+    <value>Степная зебра</value>
+  </data>
+  <data name="ZebraVoice" xml:space="preserve">
+    <value>Фффф</value>
+  </data>
+  <data name="ZebraIntro" xml:space="preserve">
+    <value>{0} осторожно следит за тобой</value>
+  </data>
+  <data name="ZebraRunAction" xml:space="preserve">
+    <value>{0} игриво бегает со всеми</value>
+  </data>
+  <data name="HorseRunActin" xml:space="preserve">
+    <value>{0} такая быстрая, что даже ног не видно</value>
+  </data>
+  <data name="MonkeyRunAction" xml:space="preserve">
+    <value>{0} резвится в клетке, будто ничто не имеет значения</value>
+  </data>
+</root>

@@ -3,7 +3,7 @@
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
 
     <System:String x:Key="MainTitleStr">СУМАШЕДШИЙ ЗООПАРК!</System:String>
-    <System:String x:Key="MainNameBlock">Иия:</System:String>
+    <System:String x:Key="MainNameBlock">Имя:</System:String>
     <System:String x:Key="MainFeedBtn">Покормить</System:String>
     <System:String x:Key="MainVoiceBtn">Голос</System:String>
     <System:String x:Key="MainCrazyActionBtn">Сумашедшее действие!</System:String>

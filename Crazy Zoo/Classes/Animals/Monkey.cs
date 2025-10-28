@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.AnimalCodeLoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Monkey : BaseAnimal, ICrazy, IRunnable
     {
-        public Monkey(string name = "Bob", string species = "Primate", string voice = "Ou, ou, ou", string introduction = "") : base(name, species, voice, introduction = $"{name} jumping from tree to tree")
+        public Monkey(string name = "Bob", string species = "Primate", string voice = "Ou, ou, ou", string introduction = "") : base(name, species, voice, introduction = string.Format(AnimalLoc.MonkeyIntro,name))
         {
         }
 
@@ -21,7 +22,7 @@ namespace Crazy_Zoo.Classes.Animals
 
         public override string EatFood(string food)
         {
-            return $"{this.GetName()} destroying {food} before eating";
+            return string.Format(AnimalLoc.MonkeyEating,this.GetName(),food);
         }
 
         public override string MakeSound()
@@ -31,7 +32,7 @@ namespace Crazy_Zoo.Classes.Animals
 
         public string Run()
         {
-            return $"{this.GetName()} running in his cage, like nothing matters";
+            return string.Format(AnimalLoc.MonkeyRunAction,this.GetName());
         }
     }
 }

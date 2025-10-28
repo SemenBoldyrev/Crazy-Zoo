@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Localization.CodeLocalization.AnimalCodeLoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Virus : BaseAnimal, ICrazy, IRunnable
     {
-        public Virus(string name = "Unknown", string species = "Virus", string voice = "...", string introduction = "") : base(name, species, voice, introduction = $"{name} waiting for his hour to conquer the world")
+        public Virus(string name = "Unknown", string species = "Virus", string voice = "...", string introduction = "") : base(name, species, voice, introduction = string.Format(AnimalLoc.VirusIntro,name))
         {
         }
 
@@ -21,7 +22,7 @@ namespace Crazy_Zoo.Classes.Animals
 
         public override string EatFood(string food)
         {
-            return $"Such powerful creature as {this.GetName()} doesn't need any {food}";
+            return string.Format(AnimalLoc.VirusEating,this.GetName(),food);
         }
 
         public override string MakeSound()
@@ -31,7 +32,7 @@ namespace Crazy_Zoo.Classes.Animals
 
         public string Run()
         {
-            return $"{this.GetName()} moves in microscopic scale";
+            return string.Format(AnimalLoc.VirusRunAction,this.GetName());
         }
     }
 }
