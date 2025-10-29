@@ -9,7 +9,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Zebra : Horse, IRunnable, ICrazy
     {
-        public Zebra(string name = "Zebra", string species = "Plains Zebra", string voice = "Hufff", string introduction = "") : base(name, species, voice, introduction = $"{name} watches you warily")
+        public Zebra(string name = "Zebra", string species = "Plains Zebra", string voice = "Hufff", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} watches you warily",age)
         {
         }
 

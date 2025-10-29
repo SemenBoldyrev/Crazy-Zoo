@@ -9,9 +9,9 @@ namespace Crazy_Zoo.Interfaces
 {
     internal interface IRepository<T>
     {
-        List<T> container { get; set; }
         void Add(T item);
         void Remove(T item);
+        void clear();
         IEnumerable<T> GetAll();
         IEnumerable<T> Find(Func<T, bool> predicate);
     }

@@ -5,7 +5,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Snail : BaseAnimal, ICrazy, IRunnable
     {
-        public Snail(string name = "Blob", string species = "Mollusk", string voice = "...", string introduction = "") : base(name, species, voice, introduction = $"{name} gracefully glides over the leaves")
+        public Snail(string name = "Blob", string species = "Mollusk", string voice = "...", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} gracefully glides over the leaves",age)
         {
         }
 

@@ -24,6 +24,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="10,22,0,0" TextWrapping="Wrap" Text="Animal creation WIZARD!" VerticalAlignment="Top" Width="241" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="608,34,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Width="52" Foreground="White" Background="Black" FontFamily="Old English Text MT" FontSize="20"/>
+        <TextBox x:Name="Age_field" HorizontalAlignment="Left" Height="39" Margin="660,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" BorderBrush="Black" FontFamily="Old English Text MT" Text="Enter age" FontSize="20" TextChanged="On_Age_field_change"/>
 
     </Grid>
 </Window>

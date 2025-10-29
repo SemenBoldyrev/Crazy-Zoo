@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 {
     internal class GroundAnimal : BaseAnimal, IRunnable
     {
-        public GroundAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} furyously running in his cage") { }
+        public GroundAnimal(string name, string species, string voice, string introduction = "", int age = 0) : base(name, species, voice, $"{name} furyously running in his cage", age) { }
 
         public override string EatFood(string food)
         {

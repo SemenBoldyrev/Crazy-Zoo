@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals
     internal class Human : BaseAnimal, IRunnable
 
     {
-        public Human(string name, string species = "Human", string voice = "Aaaaaa", string introduction ="") : base(name, species, voice, introduction = $"{name} reading papers")
+        public Human(string name, string species = "Human", string voice = "Aaaaaa", string introduction ="", int age = 0) : base(name, species, voice, introduction = $"{name} reading papers",age)
         {
         }
 

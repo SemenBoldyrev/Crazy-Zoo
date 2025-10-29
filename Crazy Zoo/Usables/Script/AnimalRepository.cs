@@ -10,10 +10,16 @@ namespace Crazy_Zoo.Usables.Script
 {
     internal class AnimalRepository : IRepository<BaseAnimal>
     {
-        private List<BaseAnimal> animals = new List<BaseAnimal>();
+        public List<BaseAnimal> container { get; set; } = new List<BaseAnimal>();
+
         public void Add(BaseAnimal item)
         {
-            animals.Add(item);
+            container.Add(item);
+        }
+
+        public void clear()
+        {
+            throw new NotImplementedException();
         }
 
         public BaseAnimal Find(Func<BaseAnimal, bool> predicate)
@@ -31,6 +37,9 @@ namespace Crazy_Zoo.Usables.Script
             throw new NotImplementedException();
         }
 
-
+        IEnumerable<BaseAnimal> IRepository<BaseAnimal>.Find(Func<BaseAnimal, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

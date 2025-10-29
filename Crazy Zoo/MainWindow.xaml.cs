@@ -2,6 +2,7 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -23,20 +24,29 @@ namespace Crazy_Zoo
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IAnimalHolder
     {
+        public Enclosure<BaseAnimal> curEnclosure = new("SampleName") { };
         // --- add here new animals to appear on start ---
-        public List<BaseAnimal> listOfAnimals = new List<BaseAnimal>  { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() };
+        public List<BaseAnimal> listOfAnimals;
 
         //ini't
         public MainWindow()
         {
-            
-
+            listOfAnimals = curEnclosure.GetAll().ToList();
             InitializeComponent();
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             Animal_list.ItemsSource = listOfAnimals;
-            MessageBox.Show("Welcome to Crazy Zoo!\nSelect an animal from the list to see its info.\nYou can feed it, hear its voice or see them in action\nBut some of them were here for too long...");
+        }
+
+        public void SetEnclosure(Enclosure<BaseAnimal> enclosure)
+        {
+            curEnclosure.clear();
+            curEnclosure = enclosure;
+            listOfAnimals = curEnclosure.GetAll().ToList();
+            Animal_list.ItemsSource = listOfAnimals;
+            Animal_list.Items.Refresh();
+            Title_textbox.Text = "Welcom to: "+ enclosure.GetName();
         }
 
         public void AddToCombobox(string itmName)
@@ -44,14 +54,16 @@ namespace Crazy_Zoo
             Food_combo_box.Items.Add(itmName);
         }
 
-        public void AddNewAnimal(BaseAnimal animal)
+        public void AddAnimal(BaseAnimal animal)
         {
+            curEnclosure.Add(animal);
             listOfAnimals.Add(animal);
             RefreshAnimalListBox();
         }
 
         public void RemoveAnimal(int index)
         { 
+            curEnclosure.Remove(listOfAnimals[index]);
             listOfAnimals.RemoveAt(index);
             RefreshAnimalListBox();
         }
@@ -187,7 +199,7 @@ namespace Crazy_Zoo
 
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
-                    AddNewAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter"));
+                    AddAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter", age: listOfAnimals[Animal_list.SelectedIndex].GetAge()));
                     RemoveAnimal(Animal_list.SelectedIndex);
                     ClearInfo();
                     break;
@@ -200,5 +212,7 @@ namespace Crazy_Zoo
                     break;
             }
         }
+
+        
     }
 }

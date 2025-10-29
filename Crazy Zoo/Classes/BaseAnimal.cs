@@ -8,18 +8,21 @@ namespace Crazy_Zoo.Classes
 {
     public abstract class BaseAnimal
     {
+        int _age;
         string _name;
         string _species;
         string _introduction;
         string _voice;
-        public BaseAnimal(string name, string species, string voice, string introduction) 
+        public BaseAnimal(string name, string species, string voice, string introduction, int age = 0) 
         {
+            _age = age;
             _name = name;
             _species = species;
             _introduction = introduction;
             _voice = voice;
         }
 
+        public int GetAge() => _age;
         public string GetName() => _name;
         public string GetSpecies() => _species;
         public string GetIntroduction() => _introduction;
