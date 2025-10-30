@@ -37,6 +37,8 @@ namespace Crazy_Zoo
             InitializeComponent();
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             Animal_list.ItemsSource = listOfAnimals;
+
+            SignalBus.writeDial += ShowDial;
         }
 
         public void SetEnclosure(Enclosure<BaseAnimal> enclosure)

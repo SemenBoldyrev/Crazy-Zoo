@@ -24,11 +24,17 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class EncosuresWindow : Window, IAnimalHolder
     {
+
         List<Enclosure<BaseAnimal>> enclosures = new List<Enclosure<BaseAnimal>> { 
             new Enclosure<BaseAnimal>("Original Enclosure") { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() },
             new Enclosure<BaseAnimal>("Crazy fields") { new Horse(age:20), new Zebra(age:25), new Horse(name:"Another horse", age:35), new Horse(name:"Cool horse", age:15), new Horse(name:"not cool horse",age:14), },
             new Enclosure<BaseAnimal>("Micro world") { new Bacteria(age:2), new Virus(age:324), new Bacteria(name:"Ameba", species:"Ameba", age:1), new Bacteria(age:4), },
             new Enclosure<BaseAnimal>("Pre-urban jungle") { new Monkey(age:15), new Monkey(name:"Karl",age:34), new Monkey(name:"Mathew", age:42), new Monkey(name:"Someone", age:23),}};
+
+        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+        //hours and minutes
+        int[] curTime = new int[2] { 12, 0 };
+        bool nighttime = false;
 
         public EncosuresWindow()
         {
@@ -36,8 +42,23 @@ namespace Crazy_Zoo
             Enclosure_listbox.ItemsSource = enclosures;
             Enclosure_listbox.Items.Refresh();
             ClearInfo();
+
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+
+            SignalBus.writeDial += ChangeDial;
+            ClearDial();
         }
         //functions
+        public void ChangeDial(string text)
+        {
+            Dial_textbox.Items.Add($"{GetTimeText()}: " + text);
+            Dial_textbox.Items.Add("----------------------------------------");
+        }
+
+        public void ClearDial() => Dial_textbox.Items.Clear();
+
         public void RemoveEnclosure(int index)
         {
             enclosures.RemoveAt(index);
@@ -83,6 +104,59 @@ namespace Crazy_Zoo
             CrazyAnimals_textblock.Text = "";
             BabyAmount_textblock.Text = "";
             AnimalAge_listbox.ItemsSource = null;
+        }
+
+        public void CloseExcessiveWindows()
+        {
+            foreach (Window win in App.Current.Windows)
+            {
+                if (win is EncosuresWindow) { continue; }
+                win.Close();
+            }
+        }
+
+        public void CheckTime()
+        {
+            if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); }
+            if (curTime[0] == 11 && nighttime) { OpenZoo(); nighttime = false; ClearDial(); }
+        }
+
+        public string GetTimeText()
+        {
+            string timeText = "";
+            if (curTime[0] < 10)
+            {
+                timeText += "0";
+            }
+            timeText += curTime[0].ToString() + ":";
+
+            if (curTime[1] < 10)
+            {
+                timeText += "0";
+            }
+            timeText += curTime[1].ToString();
+            return timeText;
+        }
+
+        public void UpdateTimeTextbox()
+        {
+            
+
+            Time_textbox.Text = GetTimeText();
+        }
+
+        public void CloseZoo()
+        {
+            CloseExcessiveWindows();
+            nightTimeEvent?.Invoke();
+            EnterEnclosure_btn.IsEnabled = false;
+            MessageBox.Show("The zoo is now closed...\nCome back later!");
+        }
+
+        public void OpenZoo()
+        {
+            EnterEnclosure_btn.IsEnabled = true;
+            MessageBox.Show("The zoo is now open!\nWelcome back!");
         }
 
         //triggers
@@ -143,6 +217,29 @@ namespace Crazy_Zoo
             Window1 win = new Window1();
             win.Owner = this;
             win.Show();
+        }
+        
+
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            int increacer = 25; // seconds per tick (please, do not place higher than 60)
+            int span = 0;
+
+            curTime[1]+=increacer;
+            if (curTime[1] >= 60)
+            {
+                span = curTime[1] - 60;
+                curTime[0]++;
+                curTime[1] = 0;
+                if(curTime[0]>=24)
+                {
+                    curTime[0] = 0;
+                }
+            }
+            curTime[1] += span;
+            UpdateTimeTextbox();
+            CheckTime();
         }
     }
 }

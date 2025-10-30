@@ -19,27 +19,29 @@ namespace Crazy_Zoo.Usables.Script
 
         public void clear()
         {
-            throw new NotImplementedException();
+            this.container.Clear();
         }
 
-        public BaseAnimal Find(Func<BaseAnimal, bool> predicate)
+        public IEnumerable<BaseAnimal> Find(Func<BaseAnimal, bool> predicate)
         {
-            throw new NotImplementedException();
+            var result = container.Where(predicate);
+            return result;
         }
 
         public IEnumerable<BaseAnimal> GetAll()
         {
-            throw new NotImplementedException();
+            return container;
         }
 
         public void Remove(BaseAnimal item)
         {
-            throw new NotImplementedException();
+            container.Remove(item);
         }
 
         IEnumerable<BaseAnimal> IRepository<BaseAnimal>.Find(Func<BaseAnimal, bool> predicate)
         {
-            throw new NotImplementedException();
+            var result = container.Where(predicate);
+            return result;
         }
     }
 }

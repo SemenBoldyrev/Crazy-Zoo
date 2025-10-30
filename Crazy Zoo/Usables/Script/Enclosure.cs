@@ -15,6 +15,8 @@ namespace Crazy_Zoo.Usables.Script
 
         private string name;
 
+        private Action<T>? itemAdded;
+
         public Enclosure(string name)
         {
             container = new List<T>();
@@ -24,6 +26,8 @@ namespace Crazy_Zoo.Usables.Script
         public void Add(T item)
         {
             container.Add(item);
+            itemAdded?.Invoke(item);
+            if (item is IReactor) { itemAdded += ((IReactor)item).React; }
         }
 
         public void clear()
