@@ -148,7 +148,6 @@ namespace Crazy_Zoo
         public void CloseZoo()
         {
             CloseExcessiveWindows();
-            nightTimeEvent?.Invoke();
             EnterEnclosure_btn.IsEnabled = false;
             MessageBox.Show("The zoo is now closed...\nCome back later!");
         }
