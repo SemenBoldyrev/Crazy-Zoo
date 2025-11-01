@@ -51,8 +51,8 @@ namespace Crazy_Zoo
         //functions
         public void ChangeDial(string text)
         {
-            Dial_textbox.Items.Add($"{clock.GetTimeText()}: " + text);
             Dial_textbox.Items.Add("----------------------------------------");
+            Dial_textbox.Items.Add($"{clock.GetTimeText()}: " + text);
         }
 
         public void ClearDial() => Dial_textbox.Items.Clear();
@@ -115,7 +115,7 @@ namespace Crazy_Zoo
 
         public void CheckTime(object? sender,int[] curTime)
         {
-            if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); SignalBus.nihtTime.Invoke(); }
+            if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); SignalBus.nihtTime?.Invoke(); }
             if (curTime[0] == 11 && nighttime) { OpenZoo(); nighttime = false; ClearDial(); }
         }
 

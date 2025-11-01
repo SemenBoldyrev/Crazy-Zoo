@@ -10,11 +10,12 @@ namespace Crazy_Zoo.Usables.Script
     public class VirtualClock
     {
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-        //hours and minutes
-        int[] curTime = new int[2] { 12, 0 };
+        
+        private  int  timeInTick = 15; // seconds per tick (please, set below 60)
+        private int[] curTime = new int[2] { 12, 0 }; //hours and minutes
         public EventHandler<int[]>? timeChange;
 
-        public VirtualClock(int h =0, int m =0, int s =1)
+        public VirtualClock(int h =0, int m =0, int s =1) //better lef alone
         {
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(h,m,s);
@@ -48,7 +49,7 @@ namespace Crazy_Zoo.Usables.Script
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            int increacer = 25; // seconds per tick (please, do not place higher than 60)
+            int increacer = timeInTick; 
             int span = 0;
 
             curTime[1] += increacer;
