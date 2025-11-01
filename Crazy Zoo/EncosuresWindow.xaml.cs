@@ -31,9 +31,7 @@ namespace Crazy_Zoo
             new Enclosure<BaseAnimal>("Micro world") { new Bacteria(age:2), new Virus(age:324), new Bacteria(name:"Ameba", species:"Ameba", age:1), new Bacteria(age:4), },
             new Enclosure<BaseAnimal>("Pre-urban jungle") { new Monkey(age:15), new Monkey(name:"Karl",age:34), new Monkey(name:"Mathew", age:42), new Monkey(name:"Someone", age:23),}};
 
-        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-        //hours and minutes
-        int[] curTime = new int[2] { 12, 0 };
+        public VirtualClock clock = new VirtualClock(0,0,1);
         bool nighttime = false;
 
         public EncosuresWindow()
@@ -43,9 +41,9 @@ namespace Crazy_Zoo
             Enclosure_listbox.Items.Refresh();
             ClearInfo();
 
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            clock.timeChange += CheckTime;
+            clock.timeChange += UpdateTimeTextbox;
+            clock.startClock();
 
             SignalBus.writeDial += ChangeDial;
             ClearDial();
@@ -53,7 +51,7 @@ namespace Crazy_Zoo
         //functions
         public void ChangeDial(string text)
         {
-            Dial_textbox.Items.Add($"{GetTimeText()}: " + text);
+            Dial_textbox.Items.Add($"{clock.GetTimeText()}: " + text);
             Dial_textbox.Items.Add("----------------------------------------");
         }
 
@@ -115,34 +113,15 @@ namespace Crazy_Zoo
             }
         }
 
-        public void CheckTime()
+        public void CheckTime(object? sender,int[] curTime)
         {
             if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); }
             if (curTime[0] == 11 && nighttime) { OpenZoo(); nighttime = false; ClearDial(); }
         }
 
-        public string GetTimeText()
+        public void UpdateTimeTextbox(object? sender, int[] curTime)
         {
-            string timeText = "";
-            if (curTime[0] < 10)
-            {
-                timeText += "0";
-            }
-            timeText += curTime[0].ToString() + ":";
-
-            if (curTime[1] < 10)
-            {
-                timeText += "0";
-            }
-            timeText += curTime[1].ToString();
-            return timeText;
-        }
-
-        public void UpdateTimeTextbox()
-        {
-            
-
-            Time_textbox.Text = GetTimeText();
+            Time_textbox.Text = clock.GetTimeText();
         }
 
         public void CloseZoo()
@@ -216,29 +195,6 @@ namespace Crazy_Zoo
             Window1 win = new Window1();
             win.Owner = this;
             win.Show();
-        }
-        
-
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            int increacer = 25; // seconds per tick (please, do not place higher than 60)
-            int span = 0;
-
-            curTime[1]+=increacer;
-            if (curTime[1] >= 60)
-            {
-                span = curTime[1] - 60;
-                curTime[0]++;
-                curTime[1] = 0;
-                if(curTime[0]>=24)
-                {
-                    curTime[0] = 0;
-                }
-            }
-            curTime[1] += span;
-            UpdateTimeTextbox();
-            CheckTime();
         }
     }
 }
