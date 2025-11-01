@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Crazy_Zoo.Usables.Script
             container.Add(item);
             ConnectToEvents(item);
             itemAdded?.Invoke(item);
+            App.Services.GetService<ILogger>()?.Log($"'{item}' added to enclosure '{this.name}'");
         }
 
         private void ConnectToEvents(T item) 
