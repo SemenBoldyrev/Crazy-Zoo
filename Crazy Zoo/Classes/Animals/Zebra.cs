@@ -13,7 +13,7 @@ namespace Crazy_Zoo.Classes.Animals
         {
         }
 
-        public string Run()
+        public new string Run()
         {
             return $"{this.GetName()} runs playfully with others";
         }

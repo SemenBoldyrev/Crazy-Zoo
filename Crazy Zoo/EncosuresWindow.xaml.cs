@@ -115,7 +115,7 @@ namespace Crazy_Zoo
 
         public void CheckTime(object? sender,int[] curTime)
         {
-            if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); }
+            if (curTime[0] == 1 && !nighttime) { CloseZoo(); nighttime = true; ClearDial(); SignalBus.nihtTime.Invoke(); }
             if (curTime[0] == 11 && nighttime) { OpenZoo(); nighttime = false; ClearDial(); }
         }
 

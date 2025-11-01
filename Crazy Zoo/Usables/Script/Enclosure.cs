@@ -26,8 +26,14 @@ namespace Crazy_Zoo.Usables.Script
         public void Add(T item)
         {
             container.Add(item);
+            ConnectToEvents(item);
             itemAdded?.Invoke(item);
+        }
+
+        private void ConnectToEvents(T item) 
+        {
             if (item is IReactor) { itemAdded += ((IReactor)item).React; }
+            if (item is INightAnimal) { SignalBus.nihtTime += ((INightAnimal)item).NightBehavior; }
         }
 
         public void clear()
