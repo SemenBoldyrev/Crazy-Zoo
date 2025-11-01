@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Monkey : BaseAnimal, ICrazy, IRunnable
     {
-        public Monkey(string name = "Bob", string species = "Primate", string voice = "Ou, ou, ou", string introduction = "") : base(name, species, voice, introduction = $"{name} jumping from tree to tree")
+        public Monkey(string name = "Bob", string species = "Primate", string voice = "Ou, ou, ou", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} jumping from tree to tree",age)
         {
         }
 

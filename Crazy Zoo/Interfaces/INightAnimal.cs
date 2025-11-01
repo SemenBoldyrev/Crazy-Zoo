@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Crazy_Zoo.Usables.Script
+namespace Crazy_Zoo.Interfaces
 {
-    public class LanguageManager
+    public interface INightAnimal
     {
+        void NightBehavior();
     }
 }

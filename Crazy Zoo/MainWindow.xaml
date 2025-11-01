@@ -23,6 +23,6 @@
         <Button Name="Delete_button" Content="Delete" HorizontalAlignment="Left" Height="35" Margin="183,370,0,0" VerticalAlignment="Top" Width="162" Click="On_Delete_button_press" FontSize="20"/>
         <TextBlock Name="Name_box" HorizontalAlignment="Left" Height="23" Margin="481,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
         <TextBlock Name="Species_box" HorizontalAlignment="Left" Height="23" Margin="481,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Center" Height="93" Margin="0,12,0,0" TextWrapping="Wrap" Text="WELCOM TO&quot;CRAZY ZOO&quot;!" VerticalAlignment="Top" Width="780" FontSize="60" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock x:Name="Title_textbox" HorizontalAlignment="Center" Height="93" Margin="0,12,0,0" TextWrapping="Wrap" Text="WELCOM TO&quot;CRAZY ZOO&quot;!" VerticalAlignment="Top" Width="780" FontSize="60" TextAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>

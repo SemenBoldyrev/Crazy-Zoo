@@ -20,28 +20,4 @@
     <Resource Include="Без названия.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Usables\Localization\Strings.ru.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Strings.ru.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Usables\Localization\Strings.en.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Strings.en.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Usables\Localization\Strings.ru.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.ru.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Usables\Localization\Strings.en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.en.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>

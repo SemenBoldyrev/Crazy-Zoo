@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Crazy_Zoo.Classes.Animals
 {
-    internal class Horse : BaseAnimal, IRunnable, ICrazy
+    internal class Horse : BaseAnimal, IRunnable, ICrazy, IReactor
     {
-        public Horse(string name = "Horse", string species = "Standart horse", string voice = "Brrrr", string introduction = "") : base(name, species, voice, introduction = $"{name} gracefully shakes the earth")
+        public Horse(string name = "Horse", string species = "Standart horse", string voice = "Brrrr", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} gracefully shakes the earth", age)
         {
         }
 
@@ -28,6 +29,14 @@ namespace Crazy_Zoo.Classes.Animals
         public override string MakeSound()
         {
             return this.GetVoice();
+        }
+
+        public void React(BaseAnimal item)
+        {
+            if (item.GetType() != this.GetType())
+            {
+                SignalBus.writeDial?.Invoke($"{this.GetName()} in fear of {item.GetSpecies()}!");
+            }
         }
 
         public string Run()

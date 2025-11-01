@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Virus : BaseAnimal, ICrazy, IRunnable
     {
-        public Virus(string name = "Unknown", string species = "Virus", string voice = "...", string introduction = "") : base(name, species, voice, introduction = $"{name} waiting for his hour to conquer the world")
+        public Virus(string name = "Unknown", string species = "Virus", string voice = "...", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} waiting for his hour to conquer the world",age)
         {
         }
 

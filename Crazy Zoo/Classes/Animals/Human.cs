@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Crazy_Zoo.Classes.Animals
 {
-    internal class Human : BaseAnimal, IRunnable
+    internal class Human : BaseAnimal, IRunnable, INightAnimal
 
     {
-        public Human(string name, string species = "Human", string voice = "Aaaaaa", string introduction ="") : base(name, species, voice, introduction = $"{name} reading papers")
+        public Human(string name, string species = "Human", string voice = "Aaaaaa", string introduction ="", int age = 0) : base(name, species, voice, introduction = $"{name} reading papers",age)
         {
         }
 
@@ -22,6 +23,11 @@ namespace Crazy_Zoo.Classes.Animals
         public override string MakeSound()
         {
             return "'I wont make sound for you, do you think im some sort of animal?'";
+        }
+
+        public void NightBehavior()
+        {
+            SignalBus.writeDial?.Invoke($"{this.GetName()} is playing games at night...");
         }
 
         public string Run()

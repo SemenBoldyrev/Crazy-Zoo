@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals
 {
     internal class Bacteria: BaseAnimal, ICrazy
     {
-        public Bacteria(string name = "Bacteria", string species = "Prokaryote", string voice = "....", string introduction = "") : base(name, species, voice, introduction = $"{name} multiplying rapidly, \nbut still hardly seen")
+        public Bacteria(string name = "Bacteria", string species = "Prokaryote", string voice = "....", string introduction = "", int age = 0) : base(name, species, voice, introduction = $"{name} multiplying rapidly, \nbut still hardly seen",age)
         {
         }
         public CrazyActionEnumerates.CrazyActionEnum CrazyAction()

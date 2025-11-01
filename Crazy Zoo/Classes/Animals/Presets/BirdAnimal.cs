@@ -10,7 +10,7 @@ namespace Crazy_Zoo.Classes.Animals.Presets
 {
     internal class BirdAnimal: BaseAnimal, IFlyable
     {
-        public BirdAnimal(string name, string species, string voice, string introduction = "") : base(name, species, voice, $"{name} cutting the very sky") { }
+        public BirdAnimal(string name, string species, string voice, string introduction = "", int age = 0) : base(name, species, voice, $"{name} cutting the very sky", age) { }
 
         public override string EatFood(string food)
         {
