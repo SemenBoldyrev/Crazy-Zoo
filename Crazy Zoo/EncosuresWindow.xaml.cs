@@ -194,7 +194,7 @@ namespace Crazy_Zoo
         {
             Window1 win = new Window1();
             win.Owner = this;
-            win.Show();
+            win.Show(); 
         }
     }
 }
