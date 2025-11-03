@@ -14,12 +14,12 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class App : Application
     {
-        public static IServiceProvider Services;
+        public static IServiceProvider? Services;
         public App()
         {
             var sc = new ServiceCollection();
 
-            sc.AddSingleton<ILogger, TextLogger>();
+            sc.AddSingleton<ILogger, JsonLogger>();
 
             Services = sc.BuildServiceProvider();
         }

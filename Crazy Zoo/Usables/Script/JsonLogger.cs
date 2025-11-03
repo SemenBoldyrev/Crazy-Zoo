@@ -3,21 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Shapes;
-using Path = System.IO.Path;
+using System.Text.Json;
 
 namespace Crazy_Zoo.Usables.Script
 {
-    internal class TextLogger : ILogger
+    internal class JsonContainer { string time; string message; }
+    internal class JsonLogger : ILogger
     {
-        private string directory = "..\\..\\..\\Usables\\Data\\Text\\";
-        private string fileName = "log_test.txt";
+        private string directory = "..\\..\\..\\Usables\\Data\\Json\\";
+        private string fileName = "log_test.json";
         private string justFileName = "log_test";
 
-        public TextLogger()
+        public JsonLogger()
         {
             CheckCurDerictory();
             CreateNewLogFile();
@@ -43,7 +42,8 @@ namespace Crazy_Zoo.Usables.Script
             string archFilePath = Path.Combine("..\\..\\..\\Usables\\Data\\Archive\\", justFileName + $"-[{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}].txt");
             string oldFilePath = Path.Combine(directory, fileName);
 
-            try {
+            try
+            {
                 File.Move(oldFilePath, archFilePath);
                 File.Delete(oldFilePath);
                 CreateNewLogFile();
@@ -54,13 +54,13 @@ namespace Crazy_Zoo.Usables.Script
         public void Log(string message)
         {
             var path = Path.Combine(directory, fileName);
-            File.AppendAllText(path,$"[{System.DateTime.Now.ToString()}] -- '{message}'\n");
+            File.AppendAllText(path, $"[{System.DateTime.Now.ToString()}] -- '{message}'\n");
         }
 
 
         public void SetFileName(string path)
         {
-            fileName = path + ".txt";
+            fileName = path + ".json";
             justFileName = path;
         }
     }

@@ -2,6 +2,7 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Script;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,7 @@ namespace Crazy_Zoo
         {
             Dial_textbox.Items.Add("----------------------------------------");
             Dial_textbox.Items.Add($"{clock.GetTimeText()}: " + text);
+            App.Services.GetService<ILogger>()?.Log($"Animal action - ({text})");
         }
 
         public void ClearDial() => Dial_textbox.Items.Clear();
@@ -76,6 +78,7 @@ namespace Crazy_Zoo
         {
             enclosures[Enclosure_listbox.SelectedIndex].Add(animal);
             EncAnimals_listbox.Items.Refresh();
+            
         }
 
         public void UpdateInfo()
@@ -195,6 +198,11 @@ namespace Crazy_Zoo
             Window1 win = new Window1();
             win.Owner = this;
             win.Show(); 
+        }
+
+        private void On_SaveLog_btn_press(object sender, RoutedEventArgs e)
+        {
+            App.Services.GetService<ILogger>()?.Archive();
         }
     }
 }
