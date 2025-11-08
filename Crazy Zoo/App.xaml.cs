@@ -19,7 +19,7 @@ namespace Crazy_Zoo
         {
             var sc = new ServiceCollection();
 
-            sc.AddSingleton<ILogger, JsonLogger>();
+            sc.AddSingleton<ILogger, XmlLogger>();
 
             Services = sc.BuildServiceProvider();
         }

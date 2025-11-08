@@ -4,17 +4,34 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Crazy_Zoo.Usables.Script
 {
-    internal class JsonContainer { string time; string message; }
+
+    //Dont save without archiving, stores data in list for more comfort usage
     internal class JsonLogger : ILogger
     {
-        private string directory = "..\\..\\..\\Usables\\Data\\Json\\";
-        private string fileName = "log_test.json";
-        private string justFileName = "log_test";
+
+        private class LogJsonData
+        {
+            public DateTime date { get; set; }
+            public string message { get; set; }
+        }
+
+        private string archiveDerictory = "..\\..\\..\\Usables\\Data\\Archive\\";
+
+
+        private string justFileName = "log";
+        private string fileNameSuffix = ".json";
+        private string fileName { get { return justFileName + fileNameSuffix; } }
+
+        private List<LogJsonData> data = new List<LogJsonData>();
 
         public JsonLogger()
         {
@@ -24,43 +41,40 @@ namespace Crazy_Zoo.Usables.Script
 
         private void CheckCurDerictory()
         {
-            if (!Directory.Exists(directory))
+            if (!Directory.Exists(archiveDerictory))
             {
-                Directory.CreateDirectory(directory);
+                Directory.CreateDirectory(archiveDerictory);
             }
         }
 
         private void CreateNewLogFile()
         {
-            string filePath = Path.Combine(directory, fileName);
-            CheckCurDerictory();
-            File.AppendAllText(filePath, $"== Log started on [{System.DateTime.Now.ToString()}] ==\n");
+            Log("Application started");
         }
 
         public void Archive()
         {
-            string archFilePath = Path.Combine("..\\..\\..\\Usables\\Data\\Archive\\", justFileName + $"-[{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}].txt");
-            string oldFilePath = Path.Combine(directory, fileName);
-
-            try
+            CheckCurDerictory();
+            string archFilePath = Path.Combine(archiveDerictory, justFileName + $"-[{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}]"+fileNameSuffix);
+            File.WriteAllText(archFilePath, JsonSerializer.Serialize(data, new JsonSerializerOptions
             {
-                File.Move(oldFilePath, archFilePath);
-                File.Delete(oldFilePath);
-                CreateNewLogFile();
-            }
-            catch { return; }
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            }));
         }
 
         public void Log(string message)
         {
-            var path = Path.Combine(directory, fileName);
-            File.AppendAllText(path, $"[{System.DateTime.Now.ToString()}] -- '{message}'\n");
+            data.Add(new LogJsonData()
+            {
+                date = DateTime.Now,
+                message = message
+            });
         }
 
 
         public void SetFileName(string path)
         {
-            fileName = path + ".json";
             justFileName = path;
         }
     }

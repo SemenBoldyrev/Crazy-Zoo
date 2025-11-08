@@ -14,8 +14,8 @@ namespace Crazy_Zoo.Usables.Script
     internal class TextLogger : ILogger
     {
         private string directory = "..\\..\\..\\Usables\\Data\\Text\\";
-        private string fileName = "log_test.txt";
-        private string justFileName = "log_test";
+        private string fileName = "log.txt";
+        private string justFileName = "log";
 
         public TextLogger()
         {
@@ -28,6 +28,10 @@ namespace Crazy_Zoo.Usables.Script
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
+            }
+            if (!Directory.Exists("..\\..\\..\\Usables\\Data\\Archive\\"))
+            {
+                Directory.CreateDirectory("..\\..\\..\\Usables\\Data\\Archive\\");
             }
         }
 

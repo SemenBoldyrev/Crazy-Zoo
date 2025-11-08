@@ -21,8 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Usables\Data\Json\" />
-    <Folder Include="Usables\Data\Archive\" />
     <Folder Include="Usables\Data\Text\" />
     <Folder Include="Usables\Data\Xml\" />
   </ItemGroup>
