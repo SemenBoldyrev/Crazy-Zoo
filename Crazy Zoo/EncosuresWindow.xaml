@@ -39,7 +39,8 @@
         <TextBlock x:Name="___No_Name__Copy" HorizontalAlignment="Left" Height="18" Margin="536,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Text="Opened from 11:00 to 01:00" TextAlignment="Center"/>
         <Border BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Height="103" Margin="452,260,0,0" VerticalAlignment="Top" Width="318"/>
         <ListBox x:Name="Dial_textbox" HorizontalAlignment="Left" Height="125" Margin="452,260,0,0" VerticalAlignment="Top" Width="318"/>
-        <Button x:Name="SaveLog_btn" Content="Archive current log" HorizontalAlignment="Left" Height="19" Margin="559,390,0,0" VerticalAlignment="Top" Width="143" Click="On_SaveLog_btn_press"/>
+        <Button x:Name="SaveLog_btn" Content="Archive current log" HorizontalAlignment="Left" Height="19" Margin="468,390,0,0" VerticalAlignment="Top" Width="143" Click="On_SaveLog_btn_press"/>
+        <Button x:Name="Database_btn" Content="Show Database" HorizontalAlignment="Left" Height="19" Margin="616,390,0,0" VerticalAlignment="Top" Width="143" Click="On_Database_btn_press"/>
 
 
     </Grid>

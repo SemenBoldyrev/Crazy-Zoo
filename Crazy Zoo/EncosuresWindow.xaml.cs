@@ -5,6 +5,7 @@ using Crazy_Zoo.Usables.Script;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -204,6 +205,13 @@ namespace Crazy_Zoo
         private void On_SaveLog_btn_press(object sender, RoutedEventArgs e)
         {
             App.Services.GetService<ILogger>()?.Archive();
+        }
+
+        private void On_Database_btn_press(object sender, RoutedEventArgs e)
+        {
+            DataTableWindow win = new DataTableWindow();
+            win.Owner = this;
+            win.Show();
         }
     }
 }
