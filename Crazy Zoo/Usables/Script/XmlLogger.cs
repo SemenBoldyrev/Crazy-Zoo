@@ -5,6 +5,7 @@ using System.Xml;
 
 namespace Crazy_Zoo.Usables.Script
 {
+    //makes new document every reset, so if you want to have new app-open log, without losing this one, then seve this in archive
     internal class XmlLogger: ILogger
     {
 
@@ -18,6 +19,8 @@ namespace Crazy_Zoo.Usables.Script
 
         private XmlDocument xmlDoc;
         XmlElement curRoot;
+
+        private int index;
 
         public XmlLogger()
         {
@@ -43,6 +46,8 @@ namespace Crazy_Zoo.Usables.Script
             curRoot = xmlDoc.CreateElement("log");
             xmlDoc.AppendChild(curRoot);
 
+            index = 0;
+
             CheckCurDerictory();
             Log("Application started");
         }
@@ -64,13 +69,19 @@ namespace Crazy_Zoo.Usables.Script
 
         public void Log(string message)
         {
+
+            XmlElement id = xmlDoc.CreateElement("Index");
+            id.InnerText = index.ToString();
+            index++;
+            curRoot.AppendChild(id);
+
             XmlElement date = xmlDoc.CreateElement("Date");
             date.InnerText = DateTime.Now.ToString();
             XmlElement givenMessage = xmlDoc.CreateElement("Message");
             givenMessage.InnerText = message;
 
-            curRoot.AppendChild(date);
-            date.AppendChild(givenMessage);
+            id.AppendChild(date);
+            id.AppendChild(givenMessage);
 
             xmlDoc.Save(Path.Combine(nativeDirection, fileName));
         }

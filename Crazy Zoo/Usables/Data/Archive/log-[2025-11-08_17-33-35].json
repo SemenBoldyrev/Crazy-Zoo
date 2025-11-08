@@ -1,82 +1,102 @@
 [
   {
-    "date": "2025-11-08T16:23:12.5146969+02:00",
+    "id": 0,
+    "date": "2025-11-08T17:33:33.8946833+02:00",
     "message": "Application started"
   },
   {
-    "date": "2025-11-08T16:23:12.5188069+02:00",
+    "id": 1,
+    "date": "2025-11-08T17:33:33.8979113+02:00",
     "message": "'Standart horse: Horse' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.5189286+02:00",
+    "id": 2,
+    "date": "2025-11-08T17:33:33.8980002+02:00",
     "message": "'Primate: Bob' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.51901+02:00",
+    "id": 3,
+    "date": "2025-11-08T17:33:33.8980594+02:00",
     "message": "'Prokaryote: Bacteria' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.5190824+02:00",
+    "id": 4,
+    "date": "2025-11-08T17:33:33.8981141+02:00",
     "message": "'Mollusk: Blob' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.5194718+02:00",
+    "id": 5,
+    "date": "2025-11-08T17:33:33.8983993+02:00",
     "message": "'Plains Zebra: Zebra' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.5195722+02:00",
+    "id": 6,
+    "date": "2025-11-08T17:33:33.8984756+02:00",
     "message": "'Virus: Unknown' added to enclosure -- 'Original Enclosure'"
   },
   {
-    "date": "2025-11-08T16:23:12.5195791+02:00",
+    "id": 7,
+    "date": "2025-11-08T17:33:33.8984808+02:00",
     "message": "'Standart horse: Horse' added to enclosure -- 'Crazy fields'"
   },
   {
-    "date": "2025-11-08T16:23:12.5195925+02:00",
+    "id": 8,
+    "date": "2025-11-08T17:33:33.8984827+02:00",
     "message": "'Plains Zebra: Zebra' added to enclosure -- 'Crazy fields'"
   },
   {
-    "date": "2025-11-08T16:23:12.5195945+02:00",
+    "id": 9,
+    "date": "2025-11-08T17:33:33.8984846+02:00",
     "message": "'Standart horse: Another horse' added to enclosure -- 'Crazy fields'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196105+02:00",
+    "id": 10,
+    "date": "2025-11-08T17:33:33.8984984+02:00",
     "message": "'Standart horse: Cool horse' added to enclosure -- 'Crazy fields'"
   },
   {
-    "date": "2025-11-08T16:23:12.519612+02:00",
+    "id": 11,
+    "date": "2025-11-08T17:33:33.8984996+02:00",
     "message": "'Standart horse: not cool horse' added to enclosure -- 'Crazy fields'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196132+02:00",
+    "id": 12,
+    "date": "2025-11-08T17:33:33.8985005+02:00",
     "message": "'Prokaryote: Bacteria' added to enclosure -- 'Micro world'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196141+02:00",
+    "id": 13,
+    "date": "2025-11-08T17:33:33.8985095+02:00",
     "message": "'Virus: Unknown' added to enclosure -- 'Micro world'"
   },
   {
-    "date": "2025-11-08T16:23:12.519615+02:00",
+    "id": 14,
+    "date": "2025-11-08T17:33:33.8985104+02:00",
     "message": "'Ameba: Ameba' added to enclosure -- 'Micro world'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196158+02:00",
+    "id": 15,
+    "date": "2025-11-08T17:33:33.8985113+02:00",
     "message": "'Prokaryote: Bacteria' added to enclosure -- 'Micro world'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196168+02:00",
+    "id": 16,
+    "date": "2025-11-08T17:33:33.8985122+02:00",
     "message": "'Primate: Bob' added to enclosure -- 'Pre-urban jungle'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196177+02:00",
+    "id": 17,
+    "date": "2025-11-08T17:33:33.8985135+02:00",
     "message": "'Primate: Karl' added to enclosure -- 'Pre-urban jungle'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196186+02:00",
+    "id": 18,
+    "date": "2025-11-08T17:33:33.898514+02:00",
     "message": "'Primate: Mathew' added to enclosure -- 'Pre-urban jungle'"
   },
   {
-    "date": "2025-11-08T16:23:12.5196195+02:00",
+    "id": 19,
+    "date": "2025-11-08T17:33:33.8985145+02:00",
     "message": "'Primate: Someone' added to enclosure -- 'Pre-urban jungle'"
   }
 ]

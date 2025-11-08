@@ -76,6 +76,7 @@ namespace Crazy_Zoo
 
         public void AddAnimal(BaseAnimal animal)
         {
+            if (Enclosure_listbox.SelectedItem == null) { return; }
             enclosures[Enclosure_listbox.SelectedIndex].Add(animal);
             EncAnimals_listbox.Items.Refresh();
             

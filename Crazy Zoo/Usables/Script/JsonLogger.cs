@@ -18,8 +18,10 @@ namespace Crazy_Zoo.Usables.Script
     internal class JsonLogger : ILogger
     {
 
+        private int index;
         private class LogJsonData
         {
+            public int id {  get; set; }
             public DateTime date { get; set; }
             public string message { get; set; }
         }
@@ -49,6 +51,7 @@ namespace Crazy_Zoo.Usables.Script
 
         private void CreateNewLogFile()
         {
+            index = 0;
             Log("Application started");
         }
 
@@ -67,9 +70,11 @@ namespace Crazy_Zoo.Usables.Script
         {
             data.Add(new LogJsonData()
             {
+                id = index,
                 date = DateTime.Now,
                 message = message
             });
+            index++;
         }
 
 
