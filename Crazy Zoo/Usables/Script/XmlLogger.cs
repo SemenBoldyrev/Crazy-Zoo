@@ -13,7 +13,7 @@ namespace Crazy_Zoo.Usables.Script
         private string nativeDirection = "..\\..\\..\\Usables\\Data\\Xml\\";
 
 
-        private string justFileName = "log_test";
+        private string justFileName = "log";
         private string fileNameSuffix = ".xml";
         private string fileName { get { return justFileName + fileNameSuffix; } }
 
