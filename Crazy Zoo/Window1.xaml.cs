@@ -1,6 +1,7 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals.Presets;
 using Crazy_Zoo.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,7 +61,7 @@ namespace Crazy_Zoo
                     animal = new WormAnimal(data["name"], data["species"], data["voice"], data["introduction"], int.Parse(data["age"]));
                     break;
             }
-            if (this.Owner is IAnimalHolder) { ((IAnimalHolder)this.Owner).AddAnimal(animal); }
+            if (this.Owner is IAnimalHolder && (bool)App.Services?.GetService<IAnimalDatabaseController>()?.IsUniqueAnimal(animal)) { ((IAnimalHolder)this.Owner).AddAnimal(animal); }
             this.Close();
         }
 

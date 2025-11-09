@@ -22,6 +22,7 @@ namespace Crazy_Zoo.Usables.Script
         {
             container = new List<T>();
             this.name = name;
+            App.Services?.GetService<IAnimalDatabaseController>()?.AddEnclosureInfo(this);
         }
 
         public void Add(T item)
@@ -65,6 +66,7 @@ namespace Crazy_Zoo.Usables.Script
             if (container.Contains(item))
             {
                 container.Remove(item);
+                App.Services.GetService<IAnimalDatabaseController>()?.RemoveAnimalInfo(item.GetUnique());
             }
         }
 

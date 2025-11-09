@@ -11,9 +11,15 @@ namespace Crazy_Zoo.Interfaces
 {
     public interface IAnimalDatabaseController
     {
-        public void RemoveAnimalInfo(int inddex);
-        public DataTable GetData();
+        public DataTable GetAnimalData();
+        public DataTable GetEnclosureData();
         public void ExecuteCommand(string command);
-        void AddAnimalInfo<T>(T animal, Enclosure<T> enclosure = null) where T : BaseAnimal;
+        public void AddAnimalInfo<T>(T animal, Enclosure<T> enclosure = null) where T : BaseAnimal;
+        public void RemoveAnimalInfo(string name);
+        public void AddEnclosureInfo<T>(Enclosure<T> enclosure = null) where T : BaseAnimal;
+        public void RemoveEnclosureInfo(string name);
+
+        public bool IsUniqueAnimal(BaseAnimal animal);
+        public bool IsUniqueEnclosure<T>(Enclosure<T> enclosure) where T : BaseAnimal;
     }
 }

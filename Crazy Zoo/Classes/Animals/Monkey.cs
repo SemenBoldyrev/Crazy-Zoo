@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
+using Crazy_Zoo.Usables.Script;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Crazy_Zoo.Classes.Animals
 
         public CrazyActionEnumerates.CrazyActionEnum CrazyAction()
         {
+            SignalBus.writeDial.Invoke($"{this.GetName()} became smarter...");
             return CrazyActionEnumerates.CrazyActionEnum.Monkey;
         }
 

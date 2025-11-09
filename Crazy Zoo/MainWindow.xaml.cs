@@ -201,8 +201,9 @@ namespace Crazy_Zoo
 
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
-                    AddAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter", age: listOfAnimals[Animal_list.SelectedIndex].GetAge()));
+                    var animalBuffer = listOfAnimals[Animal_list.SelectedIndex];
                     RemoveAnimal(Animal_list.SelectedIndex);
+                    AddAnimal(new Human(animalBuffer.GetName() + " but smarter", age: animalBuffer.GetAge()));
                     ClearInfo();
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Bacteria:

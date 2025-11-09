@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,6 @@ namespace Crazy_Zoo.Classes
 {
     public abstract class BaseAnimal
     {
-        int _index;
         int _age;
         string _name;
         string _species;
@@ -18,7 +18,6 @@ namespace Crazy_Zoo.Classes
         string _voice;
         public BaseAnimal(string name, string species, string voice, string introduction, int age = 0) 
         {
-            _index = App.Services.GetService<IIndexer>().GetUnique();
             _age = age;
             _name = name;
             _species = species;
@@ -26,7 +25,8 @@ namespace Crazy_Zoo.Classes
             _voice = voice;
         }
 
-        public int GetUnique() => _index;
+        public string GetUnique() => _name;
+        public string GetOrigin() => this.GetType().Name.Replace(this.GetType().Namespace + ".","");
         public int GetAge() => _age;
         public string GetName() => _name;
         public string GetSpecies() => _species;

@@ -21,7 +21,6 @@ namespace Crazy_Zoo
 
             sc.AddSingleton<ILogger, XmlLogger>();
             sc.AddSingleton<IAnimalDatabaseController, AnimalDatabaseController>();
-            sc.AddSingleton<IIndexer, AnimalIndexer>();
 
             Services = sc.BuildServiceProvider();
         }

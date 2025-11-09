@@ -33,15 +33,22 @@ namespace Crazy_Zoo
         {
             DataTable_listbox.Items.Clear();
 
-            var data = App.Services.GetService<IAnimalDatabaseController>().GetData();
+            var data = App.Services.GetService<IAnimalDatabaseController>().GetAnimalData();
 
             foreach ( DataRow row in data.AsEnumerable() )
             {
-                DataTable_listbox.Items.Add($"{row["Id"]} -- {row["Name"]} -- {row["Enclosure"]}" );
+                DataTable_listbox.Items.Add($"{row["Name"]} -- {row["Specie"]} -- {row["Enclosure"]}" );
+            }
+
+            data = App.Services.GetService<IAnimalDatabaseController>().GetEnclosureData();
+
+            foreach (DataRow row in data.AsEnumerable())
+            {
+                DataTableEnc_listbox.Items.Add($"{row["Name"]}");
             }
 
             DataTable_listbox.Items.Refresh();
-
+            DataTableEnc_listbox.Items.Refresh();
         }
     }
 }

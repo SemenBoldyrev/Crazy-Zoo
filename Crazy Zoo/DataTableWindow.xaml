@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="DataTableWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="DataTable_listbox" HorizontalAlignment="Left" Height="414" Margin="188,0,0,0" VerticalAlignment="Center" Width="392"/>
+        <ListBox x:Name="DataTable_listbox" HorizontalAlignment="Left" Height="414" Margin="414,0,0,0" VerticalAlignment="Center" Width="312"/>
+        <ListBox x:Name="DataTableEnc_listbox" HorizontalAlignment="Left" Height="414" Margin="74,0,0,0" VerticalAlignment="Center" Width="312"/>
 
     </Grid>
 </Window>
