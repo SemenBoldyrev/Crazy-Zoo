@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Crazy_Zoo.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +25,8 @@ namespace Crazy_Zoo.Classes
             _voice = voice;
         }
 
+        public string GetUnique() => _name;
+        public string GetOrigin() => this.GetType().Name.Replace(this.GetType().Namespace + ".","");
         public int GetAge() => _age;
         public string GetName() => _name;
         public string GetSpecies() => _species;

@@ -2,8 +2,10 @@
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Script;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,11 +27,11 @@ namespace Crazy_Zoo
     public partial class EncosuresWindow : Window, IAnimalHolder
     {
 
-        List<Enclosure<BaseAnimal>> enclosures = new List<Enclosure<BaseAnimal>> { 
-            new Enclosure<BaseAnimal>("Original Enclosure") { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() },
-            new Enclosure<BaseAnimal>("Crazy fields") { new Horse(age:20), new Zebra(age:25), new Horse(name:"Another horse", age:35), new Horse(name:"Cool horse", age:15), new Horse(name:"not cool horse",age:14), },
-            new Enclosure<BaseAnimal>("Micro world") { new Bacteria(age:2), new Virus(age:324), new Bacteria(name:"Ameba", species:"Ameba", age:1), new Bacteria(age:4), },
-            new Enclosure<BaseAnimal>("Pre-urban jungle") { new Monkey(age:15), new Monkey(name:"Karl",age:34), new Monkey(name:"Mathew", age:42), new Monkey(name:"Someone", age:23),}};
+        List<Enclosure<BaseAnimal>> enclosures = new List<Enclosure<BaseAnimal>>() { };
+            //new Enclosure<BaseAnimal>("Original Enclosure") { new Horse(), new Monkey(), new Bacteria(), new Snail(), new Zebra(), new Virus() },
+            //new Enclosure<BaseAnimal>("Crazy fields") { new Horse(name:"Markus" ,age:20), new Zebra(name:"Horse with strips" ,age:25), new Horse(name:"Another horse", age:35), new Horse(name:"Cool horse", age:15), new Horse(name:"not cool horse",age:14), },
+            //new Enclosure<BaseAnimal>("Micro world") { new Bacteria(name:"Backer",age:2), new Virus(name:"Not a virus",age:324), new Bacteria(name:"Ameba", species:"Ameba", age:1), new Bacteria(name:"Brain eater",age:4), },
+            //new Enclosure<BaseAnimal>("Pre-urban jungle") { new Monkey(name:"Victor",age:15), new Monkey(name:"Karl",age:34), new Monkey(name:"Mathew", age:42), new Monkey(name:"Someone", age:23),} };
 
         public VirtualClock clock = new VirtualClock(0,0,1);
         bool nighttime = false;
@@ -37,6 +39,9 @@ namespace Crazy_Zoo
         public EncosuresWindow()
         {
             InitializeComponent();
+
+            enclosures = ZooInitializer.GetSettedEnclosuresList();
+
             Enclosure_listbox.ItemsSource = enclosures;
             Enclosure_listbox.Items.Refresh();
             ClearInfo();
@@ -53,6 +58,7 @@ namespace Crazy_Zoo
         {
             Dial_textbox.Items.Add("----------------------------------------");
             Dial_textbox.Items.Add($"{clock.GetTimeText()}: " + text);
+            App.Services.GetService<ILogger>()?.Log($"Animal action - ({text})");
         }
 
         public void ClearDial() => Dial_textbox.Items.Clear();
@@ -74,8 +80,10 @@ namespace Crazy_Zoo
 
         public void AddAnimal(BaseAnimal animal)
         {
+            if (Enclosure_listbox.SelectedItem == null) { return; }
             enclosures[Enclosure_listbox.SelectedIndex].Add(animal);
             EncAnimals_listbox.Items.Refresh();
+            
         }
 
         public void UpdateInfo()
@@ -149,7 +157,11 @@ namespace Crazy_Zoo
         private void On_Add_Enclosure_Btn_press(object sender, RoutedEventArgs e)
         {
             if (EncName_textbox.Text == "" || EncName_textbox.Text == "Enter name here...") { return; }
-            enclosures.Add(new Enclosure<BaseAnimal>(EncName_textbox.Text));
+
+            Enclosure<BaseAnimal> newEnc = new Enclosure<BaseAnimal>(EncName_textbox.Text);
+            if ((bool)!App.Services.GetService<IAnimalDatabaseController>().IsUniqueEnclosure(newEnc)) { return; }
+
+            enclosures.Add(newEnc);
             Enclosure_listbox.Items.Refresh();
             EncName_textbox.Text = "Enter name here...";
         }
@@ -195,6 +207,18 @@ namespace Crazy_Zoo
             Window1 win = new Window1();
             win.Owner = this;
             win.Show(); 
+        }
+
+        private void On_SaveLog_btn_press(object sender, RoutedEventArgs e)
+        {
+            App.Services.GetService<ILogger>()?.Archive();
+        }
+
+        private void On_Database_btn_press(object sender, RoutedEventArgs e)
+        {
+            DataTableWindow win = new DataTableWindow();
+            win.Owner = this;
+            win.Show();
         }
     }
 }

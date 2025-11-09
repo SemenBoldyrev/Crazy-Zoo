@@ -26,14 +26,13 @@ namespace Crazy_Zoo
     /// </summary>
     public partial class MainWindow : Window, IAnimalHolder
     {
-        public Enclosure<BaseAnimal> curEnclosure = new("SampleName") { };
+        public Enclosure<BaseAnimal> curEnclosure;
         // --- add here new animals to appear on start ---
         public List<BaseAnimal> listOfAnimals;
 
         //ini't
         public MainWindow()
         {
-            listOfAnimals = curEnclosure.GetAll().ToList();
             InitializeComponent();
             foreach (string food in new List<string> {"hay", "meat", "apple", "chocolate"}) { AddToCombobox(food); }
             Animal_list.ItemsSource = listOfAnimals;
@@ -43,7 +42,7 @@ namespace Crazy_Zoo
 
         public void SetEnclosure(Enclosure<BaseAnimal> enclosure)
         {
-            curEnclosure.clear();
+            if (curEnclosure != null) { curEnclosure.clear(); }
             curEnclosure = enclosure;
             listOfAnimals = curEnclosure.GetAll().ToList();
             Animal_list.ItemsSource = listOfAnimals;
@@ -201,8 +200,9 @@ namespace Crazy_Zoo
 
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
-                    AddAnimal(new Human(listOfAnimals[Animal_list.SelectedIndex].GetName() + " but smarter", age: listOfAnimals[Animal_list.SelectedIndex].GetAge()));
+                    var animalBuffer = listOfAnimals[Animal_list.SelectedIndex];
                     RemoveAnimal(Animal_list.SelectedIndex);
+                    AddAnimal(new Human(animalBuffer.GetName() + " but smarter", age: animalBuffer.GetAge()));
                     ClearInfo();
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Bacteria:

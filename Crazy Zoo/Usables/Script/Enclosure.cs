@@ -1,5 +1,6 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Crazy_Zoo.Usables.Script
         {
             container = new List<T>();
             this.name = name;
+            App.Services?.GetService<IAnimalDatabaseController>()?.AddEnclosureInfo(this);
         }
 
         public void Add(T item)
@@ -28,6 +30,8 @@ namespace Crazy_Zoo.Usables.Script
             container.Add(item);
             ConnectToEvents(item);
             itemAdded?.Invoke(item);
+            App.Services?.GetService<ILogger>()?.Log($"'{item}' added to enclosure -- '{this.name}'");
+            App.Services?.GetService<IAnimalDatabaseController>()?.AddAnimalInfo(item, this);
         }
 
         private void ConnectToEvents(T item) 
@@ -62,6 +66,7 @@ namespace Crazy_Zoo.Usables.Script
             if (container.Contains(item))
             {
                 container.Remove(item);
+                App.Services.GetService<IAnimalDatabaseController>()?.RemoveAnimalInfo(item.GetUnique());
             }
         }
 
