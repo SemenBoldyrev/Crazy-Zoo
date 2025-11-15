@@ -26,7 +26,7 @@ namespace Crazy_Zoo
         public Window1()
         {
             InitializeComponent();
-            foreach (string type in new List<string> { "ground","bird","fish" }) { Type_field.Items.Add(type); }
+            foreach (string type in new List<string> { "GroundAnimal", "BirdAnimal", "FishAnimal" }) { Type_field.Items.Add(type); }
         }
 
         private void On_Create_new_animal_button_press(object sender, RoutedEventArgs e)
@@ -41,27 +41,9 @@ namespace Crazy_Zoo
             data.Add("introduction", check[3]);
             data.Add("age", check[4]);
 
-            BaseAnimal animal;
+            BaseAnimal animal = App.Services.GetService<IAnimalFactory>().CreatAnimal(Type_field.SelectedItem.ToString(), data["name"], int.Parse(data["age"]), data["species"], data["voice"], data["introduction"]);
 
-            switch (Type_field.SelectedItem)
-            {
-                case "ground":
-                    animal = new GroundAnimal(data["name"], data["species"], data["voice"], data["introduction"], int.Parse(data["age"]));
-                    break;
-
-                case "bird":
-                    animal = new BirdAnimal(data["name"], data["species"], data["voice"], data["introduction"], int.Parse(data["age"]));
-                    break;
-
-                case "fish":
-                    animal = new FishAnimal(data["name"], data["species"], data["voice"], data["introduction"], int.Parse(data["age"]));
-                    break;
-
-                default:
-                    animal = new WormAnimal(data["name"], data["species"], data["voice"], data["introduction"], int.Parse(data["age"]));
-                    break;
-            }
-            if (this.Owner is IAnimalHolder && (bool)App.Services?.GetService<IAnimalDatabaseController>()?.IsUniqueAnimal(animal)) { ((IAnimalHolder)this.Owner).AddAnimal(animal); }
+            if (this.Owner is IAnimalHolder && (bool)App.Services.GetService<IAnimalDatabaseController>().IsUniqueAnimal(animal)) { ((IAnimalHolder)this.Owner).AddAnimal(animal); }
             this.Close();
         }
 

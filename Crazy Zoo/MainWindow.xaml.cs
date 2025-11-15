@@ -3,6 +3,7 @@ using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Interfaces;
 using Crazy_Zoo.Usables.Enums;
 using Crazy_Zoo.Usables.Script;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -202,7 +203,7 @@ namespace Crazy_Zoo
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
                     var animalBuffer = listOfAnimals[Animal_list.SelectedIndex];
                     RemoveAnimal(Animal_list.SelectedIndex);
-                    AddAnimal(new Human(animalBuffer.GetName() + " but smarter", age: animalBuffer.GetAge()));
+                    AddAnimal(App.Services.GetService<IAnimalFactory>().CreatAnimal("Human", animalBuffer.GetName() + " but smarter", animalBuffer.GetAge(), "Human"));
                     ClearInfo();
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Bacteria:

@@ -20,6 +20,7 @@ namespace Crazy_Zoo
         {
             ServiceCollection sc = new ServiceCollection();
 
+            sc.AddSingleton<IAnimalFactory,AnimalFactory>();
             sc.AddSingleton<ILanguageManager, LanguageManager>();
             sc.AddSingleton<ILogger, XmlLogger>();
             sc.AddSingleton<IAnimalDatabaseController, AnimalDatabaseController>();

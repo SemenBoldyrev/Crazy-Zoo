@@ -1,6 +1,8 @@
 ﻿using Crazy_Zoo.Classes;
 using Crazy_Zoo.Classes.Animals;
 using Crazy_Zoo.Classes.Animals.Presets;
+using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,9 @@ using System.Windows.Media.Animation;
 
 namespace Crazy_Zoo.Usables.Script
 {
-    public static class AnimalFactory
+    public  class AnimalFactory: IAnimalFactory
     {
-        public static BaseAnimal CreatAnimal(string _origin ,string _name, int _age, string _species = "none", string _voice = "none", string _introduction = "none")
+        public  BaseAnimal CreatAnimal(string _origin ,string _name, int _age, string _species = "none", string _voice = "none", string _introduction = "none")
         {
             switch (_origin)
             {
@@ -25,10 +27,9 @@ namespace Crazy_Zoo.Usables.Script
                 case "Human": return new Human(_name, _species, age: _age);
                 case "Monkey": return new Monkey(_name, _species, age: _age);
                 case "Snail": return new Snail(_name, _species, age: _age);
-                case "Virus": return new Virus(_name, _species, age: _age);             
+                case "Virus": return new Virus(_name, _species, age: _age);
                 case "Zebra": return new Zebra(_name, _species, age: _age);
                 default: return new WormAnimal(_name, _species, _voice, _introduction, _age);
-
             }
         }
     }
