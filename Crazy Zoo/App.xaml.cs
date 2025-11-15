@@ -1,4 +1,5 @@
 ﻿using Crazy_Zoo.Interfaces;
+using Crazy_Zoo.Usables.Enums;
 using Crazy_Zoo.Usables.Script;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
@@ -17,12 +18,17 @@ namespace Crazy_Zoo
         public static IServiceProvider? Services;
         public App()
         {
-            var sc = new ServiceCollection();
+            ServiceCollection sc = new ServiceCollection();
 
+            sc.AddSingleton<ILanguageManager, LanguageManager>();
             sc.AddSingleton<ILogger, XmlLogger>();
             sc.AddSingleton<IAnimalDatabaseController, AnimalDatabaseController>();
 
             Services = sc.BuildServiceProvider();
+
+            //
+            Services.GetService<ILanguageManager>()?.SetLanguage(LanguageSet.English);
+            //
         }
     }
 }
