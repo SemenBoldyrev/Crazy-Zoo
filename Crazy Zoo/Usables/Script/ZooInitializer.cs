@@ -28,7 +28,7 @@ namespace Crazy_Zoo.Usables.Script
 
             foreach (DataRow animal in animalTable.AsEnumerable())
             {
-                tmpDict[(string)animal["Enclosure"]].Add(AnimalFactory.CreatAnimal(
+                tmpDict[(string)animal["Enclosure"]].Add(App.Services?.GetService<IAnimalFactory>()?.CreatAnimal(
                     (string)animal["Origin"],
                     (string)animal["Name"],
                     (int)animal["Age"],
