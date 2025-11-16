@@ -203,7 +203,7 @@ namespace Crazy_Zoo
                 case CrazyActionEnumerates.CrazyActionEnum.Monkey:
                     var animalBuffer = listOfAnimals[Animal_list.SelectedIndex];
                     RemoveAnimal(Animal_list.SelectedIndex);
-                    AddAnimal(App.Services.GetService<IAnimalFactory>().CreatAnimal("Human", animalBuffer.GetName() + " but smarter", animalBuffer.GetAge(), "Human"));
+                    AddAnimal(App.Services.GetService<IAnimalFactory>().CreatAnimal(AnimalNameSet.HUMAN, animalBuffer.GetName() + " but smarter", animalBuffer.GetAge(), AnimalNameSet.HUMAN));
                     ClearInfo();
                     break;
                 case CrazyActionEnumerates.CrazyActionEnum.Bacteria:
